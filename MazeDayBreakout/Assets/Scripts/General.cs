@@ -8,14 +8,14 @@ public class General : MonoBehaviour
     public Camera MainCamera, Cutscene;
     public GameObject Flashlight;
 
-    bool camSwitch = false;
+    bool onoff = false;
     // Start is called before the first frame update
     void Start()
     {
 
-        MainCamera.gameObject.SetActive(camSwitch);
-        Cutscene.gameObject.SetActive(!camSwitch);
-        Flashlight.SetActive(false);
+        MainCamera.enabled = false;
+        Cutscene.enabled = true;
+        Flashlight.SetActive(onoff);
     }
 
     // Update is called once per frame
@@ -23,14 +23,15 @@ public class General : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            camSwitch = !camSwitch;
-            MainCamera.gameObject.SetActive(camSwitch);
-            Cutscene.gameObject.SetActive(!camSwitch);
+            MainCamera.enabled = !MainCamera.enabled;
+            Cutscene.enabled = !Cutscene.enabled;
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Flashlight.SetActive(true);
+            onoff = !onoff;
+            Flashlight.SetActive(onoff);
+
         }
 
 
