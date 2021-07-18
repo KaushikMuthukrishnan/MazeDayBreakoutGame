@@ -7,7 +7,7 @@ public class Controls : MonoBehaviour
     public Transform Player;
 
     float Rotation = 0f;
-    public float rotateSpeed = 1000f;
+    public float rotateSpeed = 75f;
     void Start()
     {
 
