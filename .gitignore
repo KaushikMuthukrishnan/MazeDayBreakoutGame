@@ -26,6 +26,8 @@ ExportedObj/
 *.VC.db
 
 # Unity3D generated meta files
+/MazeDayBreakout/Logs
+*.log
 *.pidb.meta
 *.pdb.meta
 
