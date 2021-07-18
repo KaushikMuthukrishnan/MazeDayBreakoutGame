@@ -12,8 +12,7 @@ public class WriteFile : MonoBehaviour
     }
     public void WriteData(Dictionary<string, string[]> dict)
     {
-        dict.
-        File.AppendAllText(filePath);
+
     }
     
 }
