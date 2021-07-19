@@ -19,6 +19,8 @@ public class General : MonoBehaviour
 
     void Update()
     {
+
+
         // Remove when done
         if (Input.GetKeyDown(KeyCode.C))
         {

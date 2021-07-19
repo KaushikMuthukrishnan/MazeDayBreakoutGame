@@ -53,10 +53,14 @@ public class Movement : MonoBehaviour
         {
 /*        if (isGrounded && velocity.y < 0)
         {
+<<<<<<< Updated upstream
             velocity.y = -2f;
         }*/
             velocity.y += -9.8f * Time.deltaTime;
             characterController.Move(velocity * Time.deltaTime);
+=======
+            velocity.y = -2f; 
+>>>>>>> Stashed changes
         }
     }
 

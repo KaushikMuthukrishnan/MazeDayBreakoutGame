@@ -6,7 +6,31 @@ public class Wakeup : MonoBehaviour
 {
     public Camera MainCamera, Cutscene;
     public GameObject Player;
+    public CharacterController characterController;
+    bool frozen = true;
 
+<<<<<<< Updated upstream
+=======
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Player.SetActive(false);
+
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (frozen == true)
+        {
+            characterController.Move(0, 0, 0);
+        }
+
+    }
+
+
+>>>>>>> Stashed changes
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.CompareTag("Player"))
