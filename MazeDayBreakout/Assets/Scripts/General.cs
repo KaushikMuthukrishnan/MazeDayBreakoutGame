@@ -9,7 +9,6 @@ public class General : MonoBehaviour
     public GameObject Flashlight;
 
     bool onoff = false;
-    // Start is called before the first frame update
     void Start()
     {
 
@@ -18,7 +17,6 @@ public class General : MonoBehaviour
         Flashlight.SetActive(onoff);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Remove when done
@@ -32,12 +30,6 @@ public class General : MonoBehaviour
         {
             onoff = !onoff;
             Flashlight.SetActive(onoff);
-
         }
-
-
-
     }
-
-
 }
