@@ -20,7 +20,7 @@ public class Controls : MonoBehaviour
     {
         float MouseX = Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
         float MouseY = Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
-        Player.transform.Rotate(Vector3.up * MouseX);
+        Player.Rotate(0, MouseX, 0);
         Rotation -= MouseY;
         Rotation = Mathf.Clamp(Rotation, -90f, 90f);
         transform.localRotation = Quaternion.Euler(Rotation, 0f, 0f);
