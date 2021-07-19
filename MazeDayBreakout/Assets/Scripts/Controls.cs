@@ -18,8 +18,6 @@ public class Controls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         float MouseX = Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
         float MouseY = Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
         Player.transform.Rotate(Vector3.up * MouseX);
