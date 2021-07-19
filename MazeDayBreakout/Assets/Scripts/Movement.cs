@@ -5,8 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    float speed = 25f;
-    float runspeed = 50f;
+    float speed = 5f;
+    float runspeed = 10f;
     float height = 500f;
     bool isGrounded;
     public CharacterController characterController;
@@ -15,45 +15,34 @@ public class Movement : MonoBehaviour
     public Transform GroundCheck;
     public float GroudDistance = 0.4f;
     public LayerMask GroundMask;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public Animator camBob;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(GroundCheck.position, GroudDistance, GroundMask);
+        isGrounded = characterController.detectCollisions;
+        //isGrounded = Physics.CheckSphere(GroundCheck.position, GroudDistance, GroundMask);
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-
+            velocity.y = 0;
             characterController.Move(new Vector3(0, height, 0) * Time.deltaTime);
             isGrounded = false;
 
         }
-        if (Input.GetKey(KeyCode.LeftShift))
-
+        else
         {
-            speed = runspeed;
+            speed = Input.GetKey(KeyCode.LeftShift) ? runspeed : 5f;
+            Vector3 movement = transform.right * x + transform.forward * y;
+            characterController.Move(movement * speed * Time.deltaTime);
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed = 25f;
-        }
-        if (isGrounded && velocity.y < 0)
+/*        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
-        }
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        float z = Input.GetAxis("Jump");
-        Vector3 movement = transform.right * x + transform.forward * y;
-        characterController.Move(movement * speed * Time.deltaTime);
+        }*/
         velocity.y += -9.8f * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
-
 
 }
