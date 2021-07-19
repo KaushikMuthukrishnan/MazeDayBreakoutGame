@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
 {
 
     float speed = 25f;
+    float runspeed = 50f;
     float height = 500f;
     bool isGrounded;
     public CharacterController characterController;
@@ -31,6 +32,15 @@ public class Movement : MonoBehaviour
             characterController.Move(new Vector3(0, height, 0) * Time.deltaTime);
             isGrounded = false;
 
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+
+        {
+            speed = runspeed;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 25f;
         }
         if (isGrounded && velocity.y < 0)
         {

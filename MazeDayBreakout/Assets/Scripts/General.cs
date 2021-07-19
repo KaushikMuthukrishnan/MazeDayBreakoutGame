@@ -21,6 +21,7 @@ public class General : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Remove when done
         if (Input.GetKeyDown(KeyCode.C))
         {
             MainCamera.enabled = !MainCamera.enabled;
