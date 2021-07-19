@@ -20,18 +20,19 @@ public class General : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            onoff = !onoff;
+            Flashlight.SetActive(onoff);
+        }
 
-        // Remove when done
+        // THIS IS A DEV SCRIPT! Remove when GAME IS DONE!
         if (Input.GetKeyDown(KeyCode.C))
         {
             MainCamera.enabled = !MainCamera.enabled;
             Cutscene.enabled = !Cutscene.enabled;
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            onoff = !onoff;
-            Flashlight.SetActive(onoff);
-        }
+
     }
 }
