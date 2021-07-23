@@ -32,12 +32,13 @@ public class Movement : MonoBehaviour
             {
                 speed = Input.GetKey(KeyCode.LeftShift) ? runspeed : 5f;
                 bobController.SetBool("Sprinting", isGrounded && Mathf.Abs(y) > 0 && Input.GetKey(KeyCode.LeftShift)); //triggers sprinting bob only when moving forward and on ground
-
+                //set sprint realted to walk bool
                 Vector3 movement = transform.right * x + transform.forward * y;
+                movement = movement.normalized;
                 characterController.Move(speed * Time.deltaTime * movement);
 
                 //triggers the "bobbing" animation when walking
-                bobController.SetBool("Walking", isGrounded && Mathf.Abs(y) > 0); //evaluates to true when on floor && when moving forward
+                bobController.SetBool("Walking", isGrounded && movement.sqrMagnitude > 0); //evaluates to true when on floor && when moving forward
 
             }
         }
