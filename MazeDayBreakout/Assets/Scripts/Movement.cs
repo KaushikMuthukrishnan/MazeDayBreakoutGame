@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
         //check if two objects are colliding
 
 
-        if (Frozen == true)
+        if (Frozen == false)
         {
             Vector3 movement = transform.right * x + transform.forward * y;
             movement = movement.normalized;

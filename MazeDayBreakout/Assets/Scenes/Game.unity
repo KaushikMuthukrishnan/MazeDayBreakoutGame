@@ -390,7 +390,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321038494}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.3}
@@ -652,6 +652,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WakeupText: {fileID: 0}
   SubtitleText: {fileID: 1842954257}
+  HQText: {fileID: 0}
+  BadpeopleText: {fileID: 0}
 --- !u!4 &656582094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3832703582600944448, guid: bceefb2a39f6db74d9bc9d006687b7f1,
@@ -975,6 +977,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WakeupText: {fileID: 1472748144}
   SubtitleText: {fileID: 1842954257}
+  HQText: {fileID: 0}
+  BadpeopleText: {fileID: 0}
 --- !u!1001 &1295962580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1942,7 +1946,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014724624}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 0.5}

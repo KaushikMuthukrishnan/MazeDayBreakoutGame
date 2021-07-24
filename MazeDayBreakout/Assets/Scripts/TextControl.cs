@@ -8,6 +8,8 @@ public class TextControl : MonoBehaviour
 
     public Text WakeupText;
     public Text SubtitleText;
+    public Text HQText;
+    public Text BadpeopleText;
     // Start is called before the first frame update
     void Start()
     {
