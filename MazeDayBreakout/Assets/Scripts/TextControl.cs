@@ -11,9 +11,10 @@ public class TextControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(wakeup());
+
+        StartCoroutine(Subtitles());
     }
-    IEnumerator wakeup()
+    IEnumerator Subtitles()
     {
         yield return new WaitForSeconds(1);
         WakeupText.text = "Ouch My Head.";
@@ -23,6 +24,14 @@ public class TextControl : MonoBehaviour
         WakeupText.text = "Wait, Where am I?";
         yield return new WaitForSeconds(1);
         WakeupText.text = "";
+        yield return new WaitForSeconds(10);
+        SubtitleText.text = "1";
+        yield return new WaitForSeconds(2);
+        SubtitleText.text = "2";
+        yield return new WaitForSeconds(3);
+        SubtitleText.text = "3";
+        yield return new WaitForSeconds(1);
+        SubtitleText.text = "";
     }
 
 
