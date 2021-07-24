@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class TextControl : MonoBehaviour
 {
 
-    public Text text;
+    public Text WakeupText;
+    public Text SubtitleText;
     public string textString;
     // Start is called before the first frame update
     void Start()
