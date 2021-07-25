@@ -11,7 +11,7 @@ public class Controls : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Frozen = false;
         // Debug.Log("TRIGGERED!");
