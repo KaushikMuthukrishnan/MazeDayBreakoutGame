@@ -27,11 +27,11 @@ public class TextControl : MonoBehaviour
         yield return new WaitForSeconds(1);
         WakeupText.text = "";
         yield return new WaitForSeconds(10);
-        SubtitleText.text = "1";
+        SubtitleText.text = "THIS IS MAIN CAMERA TEST!";
         yield return new WaitForSeconds(2);
-        SubtitleText.text = "2";
+        SubtitleText.text = "TEST 2";
         yield return new WaitForSeconds(3);
-        SubtitleText.text = "3";
+        SubtitleText.text = " TEST 3";
         yield return new WaitForSeconds(1);
         SubtitleText.text = "";
     }

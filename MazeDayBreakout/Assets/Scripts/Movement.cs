@@ -11,7 +11,11 @@ public class Movement : MonoBehaviour
     public Animator bobController;
 
     public bool Frozen = true;
-
+    public void OnTriggerEnter(Collider other)
+    {
+        Frozen = false;
+        // Debug.Log("TRIGGERED!");
+    }
     void Update()
     {
         isGrounded = characterController.isGrounded;
@@ -33,5 +37,6 @@ public class Movement : MonoBehaviour
             bobController.SetBool("Walking", isGrounded && movement.sqrMagnitude > 0); //evaluates to true when on floor && when moving
         }
     }
+
 
 }
