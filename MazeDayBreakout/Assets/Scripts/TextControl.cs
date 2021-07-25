@@ -18,6 +18,8 @@ public class TextControl : MonoBehaviour
     }
     IEnumerator Subtitles()
     {
+        if (WakeupText == null)
+            yield break;
         yield return new WaitForSeconds(1);
         WakeupText.text = "Ouch My Head.";
         yield return new WaitForSeconds(2);

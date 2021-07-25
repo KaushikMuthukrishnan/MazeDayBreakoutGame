@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +14,7 @@ public class Movement : MonoBehaviour
     public GameObject Pistol;
     bool onoff = false;
     public GameObject Flashlight;
-    public bool Frozen = true;
+    public static bool Frozen = true;
 
     void Start()
     {
@@ -42,7 +41,7 @@ public class Movement : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         speed = Input.GetKey(KeyCode.LeftShift) ? runspeed : 5f;
         bobController.SetBool("Sprinting", bobController.GetBool("Walking") && Input.GetKey(KeyCode.LeftShift)); //triggers sprinting bob only when walking and holding shift
-        if (Frozen == false)
+        if (Movement.Frozen == false)
         {
             Vector3 movement = transform.right * x + transform.forward * y;
             movement = movement.normalized;
@@ -54,7 +53,7 @@ public class Movement : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Frozen = false;
+        Movement.Frozen = false;
 
 
         if (other.tag == "Guns")
@@ -77,8 +76,8 @@ public class Movement : MonoBehaviour
     IEnumerator Tooltips()
     {
         yield return new WaitForSeconds(1);
-        tooltips.text = "Press F: Built in Flashlight \\n Press R:Reaload Mag";
-        tooltips.text = tooltips.text.Replace("\\n", "\n");
+        tooltips.text = "Press F: Built in Flashlight \n Press R:Reaload Mag";
+        //tooltips.text = tooltips.text.Replace("\\n", "\n");
         yield return new WaitForSeconds(5);
         tooltips.text = "";
 

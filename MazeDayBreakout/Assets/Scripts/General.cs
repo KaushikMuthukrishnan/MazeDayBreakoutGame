@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//ATTENTION:
+//This script is not in use in the game
+//
 public class General : MonoBehaviour
 {
+
     //change cameras
     public Camera MainCamera, Cutscene;
 
