@@ -25,11 +25,15 @@ public class Movement : MonoBehaviour
             StartCoroutine(Tooltips());
             Flashlight.SetActive(onoff);
         }*/
-        if (Input.GetKeyDown(KeyCode.F))
+/*        if (Input.GetKeyDown(KeyCode.F))
         {
             onoff = !onoff;
             Flashlight.SetActive(onoff);
-        }
+        }*/
+
+        
+        //@ARTHUR
+        //Flashlight will be moved to GunManager.cs if the feature is needed
         isGrounded = characterController.isGrounded;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -70,7 +74,7 @@ public class Movement : MonoBehaviour
         }*/
     }
 
-    IEnumerator Tooltips()
+/*    IEnumerator Tooltips()
     {
         yield return new WaitForSeconds(1);
         tooltips.text = "Press F: Built in Flashlight \n Press R:Reaload Mag";
@@ -78,6 +82,6 @@ public class Movement : MonoBehaviour
         yield return new WaitForSeconds(5);
         tooltips.text = "";
 
-    }
+    }*/
 
 }
