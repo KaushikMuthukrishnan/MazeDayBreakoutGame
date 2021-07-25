@@ -33,6 +33,15 @@ public class General : MonoBehaviour
             Cutscene.enabled = !Cutscene.enabled;
         }
 
+        //when the mouse hover is on the gameobject, it will change the color of the gameobject
+        if (Input.GetMouseButtonDown(0))
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            gameObject.GetComponent<Renderer>().material.color = Color.green;
+        }
 
     }
     private void OnTriggerEnter(Collider other)
