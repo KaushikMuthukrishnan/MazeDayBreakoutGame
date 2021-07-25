@@ -12,16 +12,30 @@ public class Movement : MonoBehaviour
     public Animator bobController;
     public Text tooltips;
     public GameObject Gun;
-    public GameObject Pistol = null;
+    public GameObject Pistol;
+    bool onoff = false;
+    public GameObject Flashlight;
     public bool Frozen = true;
+
+    void Start()
+    {
+        Pistol = null;
+    }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.F) && Pistol != null)
         {
-            Debug.Log("TRIGGERED!");
             Pistol.SetActive(false);
             Gun.SetActive(true);
+            Pistol = null;
+            StartCoroutine(Tooltips());
+            Flashlight.SetActive(onoff);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            onoff = !onoff;
+            Flashlight.SetActive(onoff);
         }
         isGrounded = characterController.isGrounded;
         float x = Input.GetAxis("Horizontal");
@@ -42,28 +56,15 @@ public class Movement : MonoBehaviour
     {
         Frozen = false;
 
+
         if (other.tag == "Guns")
         {
-
             tooltips.text = "Press 'F' to pick up the gun";
             Pistol = other.gameObject;
-
-
-
-
         }
-        // if (other.tag == "Guns" && Input.GetKeyDown(KeyCode.F))
-        // {
-        //     //your code
-        //     Debug.Log("TRIGGERED!");
-        //     Pistol.SetActive(false);
-        //     Gun.SetActive(true);
-        // }
+
 
     }
-
-
-
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Guns")
@@ -71,6 +72,16 @@ public class Movement : MonoBehaviour
             tooltips.text = " ";
             Pistol = null;
         }
+    }
+
+    IEnumerator Tooltips()
+    {
+        yield return new WaitForSeconds(1);
+        tooltips.text = "Press F: Built in Flashlight \\n Press R:Reaload Mag";
+        tooltips.text = tooltips.text.Replace("\\n", "\n");
+        yield return new WaitForSeconds(5);
+        tooltips.text = "";
+
     }
 
 }
