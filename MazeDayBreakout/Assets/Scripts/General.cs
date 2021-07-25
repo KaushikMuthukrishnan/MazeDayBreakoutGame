@@ -35,4 +35,9 @@ public class General : MonoBehaviour
 
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        MainCamera.enabled = true;
+        Cutscene.enabled = false;
+    }
 }
