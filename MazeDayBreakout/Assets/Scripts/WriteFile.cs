@@ -13,15 +13,4 @@ public class WriteFile : MonoBehaviour
         File.AppendAllText(filePath, text + "\n");
     }
 
-    private void OnGUI()
-    {
-/*        string temp = "enter here";
-        GUILayout.BeginArea(new Rect(0, 0, 1000, 500));
-        string dat = GUILayout.TextField(temp, 20);
-        GUILayout.EndArea();
-
-        if (!dat.Equals(temp))
-            StoreData(dat);*/
-    }
-
 }
