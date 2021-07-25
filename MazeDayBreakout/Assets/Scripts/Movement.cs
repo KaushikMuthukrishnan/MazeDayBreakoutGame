@@ -11,26 +11,20 @@ public class Movement : MonoBehaviour
     public Animator bobController;
     public Text tooltips;
     public GameObject Gun;
-    public GameObject Pistol;
     bool onoff = false;
     public GameObject Flashlight;
-    public static bool Frozen = true;
-
-    void Start()
-    {
-        Pistol = null;
-    }
+    public static bool Frozen = false;
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.F) && Pistol != null)
+/*        if (Input.GetKey(KeyCode.F) && Pistol != null)
         {
             Pistol.SetActive(false);
             Gun.SetActive(true);
             Pistol = null;
             StartCoroutine(Tooltips());
             Flashlight.SetActive(onoff);
-        }
+        }*/
         if (Input.GetKeyDown(KeyCode.F))
         {
             onoff = !onoff;
@@ -41,12 +35,15 @@ public class Movement : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         speed = Input.GetKey(KeyCode.LeftShift) ? runspeed : 5f;
         bobController.SetBool("Sprinting", bobController.GetBool("Walking") && Input.GetKey(KeyCode.LeftShift)); //triggers sprinting bob only when walking and holding shift
-        if (Movement.Frozen == false)
+
+        if (!Movement.Frozen)
         {
             Vector3 movement = transform.right * x + transform.forward * y;
             movement = movement.normalized;
+
             //SimpleMove() takes care of gravity versus Move()
-            characterController.SimpleMove(speed * /*Time.deltaTime * */ movement);
+            characterController.SimpleMove(speed * movement);
+
             //triggers the "bobbing" animation when walking
             bobController.SetBool("Walking", isGrounded && movement.sqrMagnitude > 0); //evaluates to true when on floor && when moving
         }
@@ -56,21 +53,21 @@ public class Movement : MonoBehaviour
         Movement.Frozen = false;
 
 
-        if (other.tag == "Guns")
+/*        if (other.tag == "Guns")
         {
             tooltips.text = "Press 'F' to pick up the gun";
             Pistol = other.gameObject;
-        }
+        }*/
 
 
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Guns")
+/*        if (other.tag == "Guns")
         {
             tooltips.text = " ";
             Pistol = null;
-        }
+        }*/
     }
 
     IEnumerator Tooltips()

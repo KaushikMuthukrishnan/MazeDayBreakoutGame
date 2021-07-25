@@ -4,8 +4,9 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
     public Transform Player;
-    float Rotation = 0f;
-    public float rotateSpeed = 75f;
+    float rotation = 0f;
+    public float rotSensitivity = 3;
+    //planning to have rotation sensitivity to be on a scale of 1-10
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -19,12 +20,12 @@ public class Controls : MonoBehaviour
     {
         if (Movement.Frozen)
             return;
-        float MouseX = Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
-        float MouseY = Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
+        float MouseX = Input.GetAxis("Mouse X") * rotSensitivity; //see above for rotSensitivity scale
+        float MouseY = Input.GetAxis("Mouse Y") * rotSensitivity;
         Player.Rotate(0, MouseX, 0);
-        Rotation -= MouseY;
-        Rotation = Mathf.Clamp(Rotation, -90f, 90f);
-        transform.localRotation = Quaternion.Euler(Rotation, 0f, 0f);
+        rotation -= MouseY;
+        rotation = Mathf.Clamp(rotation, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(rotation, 0f, 0f);
     }
 
 

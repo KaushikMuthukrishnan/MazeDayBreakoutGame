@@ -1,9 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //ATTENTION:
 //This script is not in use in the game
-//
+//Switching to the Timeline usage for cutscenes
+//Delete if not needed
+
+
+
+
+
 public class General : MonoBehaviour
 {
 
