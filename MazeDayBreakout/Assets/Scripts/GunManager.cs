@@ -34,6 +34,8 @@ public class GunManager : MonoBehaviour
         t.transform.rotation = parentOnPick.transform.rotation;
         t.SetParent(parentOnPick);
         Destroy(transform.gameObject);
+        //This sequence makes the orphan Gun as a child of the Main Camera
+        //Also sets the transform and rotation to match the preset object on the Cam
         yield return null;
 
     }
