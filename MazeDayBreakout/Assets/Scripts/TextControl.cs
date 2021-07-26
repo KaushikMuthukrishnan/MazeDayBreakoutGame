@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TextControl : MonoBehaviour
 {
-
     public Text WakeupText;
     public Text SubtitleText;
     public Text HQText;

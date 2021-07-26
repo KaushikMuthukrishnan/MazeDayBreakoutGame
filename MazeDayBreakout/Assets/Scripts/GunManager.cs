@@ -30,10 +30,12 @@ public class GunManager : MonoBehaviour
     {
         yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.F));
         var t = transform.GetChild(0);
-        t.transform.position = parentOnPick.transform.position;
-        t.transform.rotation = parentOnPick.transform.rotation;
-        t.SetParent(parentOnPick);
-        Destroy(transform.gameObject);
+        if (t != null) //without null check, a "Child not found" error is sometimes thrown
+        {
+            t.transform.SetPositionAndRotation(parentOnPick.transform.position, parentOnPick.transform.rotation);
+            t.SetParent(parentOnPick);
+            Destroy(transform.gameObject);
+        }
         //This sequence makes the orphan Gun as a child of the Main Camera
         //Also sets the transform and rotation to match the preset object on the Cam
         yield return null;
