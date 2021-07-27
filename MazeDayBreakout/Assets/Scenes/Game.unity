@@ -1610,7 +1610,7 @@ PlayableDirector:
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 8690447144188828170, guid: 8dfc31fab26a77b49a2fc34a32fe4612, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
@@ -1823,7 +1823,6 @@ GameObject:
   - component: {fileID: 2014724628}
   - component: {fileID: 2014724627}
   - component: {fileID: 2014724626}
-  - component: {fileID: 2014724629}
   - component: {fileID: 2014724631}
   m_Layer: 0
   m_Name: Main Camera
@@ -1912,19 +1911,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!65 &2014724629
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2014724624}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &2014724631
 Animator:
   serializedVersion: 3
