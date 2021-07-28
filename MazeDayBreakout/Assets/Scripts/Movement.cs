@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Timeline;
+using UnityEngine.Playables;
 
 public class Movement : MonoBehaviour
 {
@@ -17,19 +19,15 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-/*        if (Input.GetKey(KeyCode.F) && Pistol != null)
+        //@EVERYONE, 
+        //This if statement is to skip cutscenes, and is only for debugging purposes only 
+        //Please delete this before final production of game
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            Pistol.SetActive(false);
-            Gun.SetActive(true);
-            Pistol = null;
-            StartCoroutine(Tooltips());
-            Flashlight.SetActive(onoff);
-        }*/
-/*        if (Input.GetKeyDown(KeyCode.F))
-        {
-            onoff = !onoff;
-            Flashlight.SetActive(onoff);
-        }*/
+            GameObject.Find("Main Camera").GetComponent<Controls>().enabled = true;
+            var p = gameObject.GetComponent<PlayableDirector>();
+            p.time = p.playableAsset.duration;
+        }
 
         
         //@ARTHUR
