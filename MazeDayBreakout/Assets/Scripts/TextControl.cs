@@ -28,7 +28,7 @@ public class TextControl : MonoBehaviour
         yield return new WaitForSeconds(1);
         WakeupText.text = "";
         yield return new WaitForSeconds(5);
-        SubtitleText.text = "Hello Agent, so glad you are wake, Bla bla bla I am bla";
+        SubtitleText.text = "Hello Agent, so glad you are awake, Bla bla bla I am bla";
         yield return new WaitForSeconds(2);
         SubtitleText.text = "Hi!";
         yield return new WaitForSeconds(3);

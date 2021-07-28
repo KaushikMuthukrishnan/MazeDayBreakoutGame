@@ -7,6 +7,7 @@ public class Controls : MonoBehaviour
     float rotation = 0f;
     public float lookSensitivity = 3;
     //planning to have rotation sensitivity to be on a scale of 1-10
+    //!I think this will be a good idea
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
