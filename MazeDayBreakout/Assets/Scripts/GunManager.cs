@@ -29,9 +29,10 @@ public class GunManager : MonoBehaviour
     IEnumerator PromptGunPick()
     {
         yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.F));
-        var t = transform.GetChild(0);
-        if (t != null) //without null check, a "Child not found" error is sometimes thrown
+        Transform t;
+        if (transform.childCount > 0) //makes sure there is a child so t.getChild doesnt return an error
         {
+            t = transform.GetChild(0);
             t.transform.SetPositionAndRotation(parentOnPick.transform.position, parentOnPick.transform.rotation);
             t.SetParent(parentOnPick);
             Destroy(transform.gameObject);
