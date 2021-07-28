@@ -17,21 +17,21 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-/*        if (Input.GetKey(KeyCode.F) && Pistol != null)
-        {
-            Pistol.SetActive(false);
-            Gun.SetActive(true);
-            Pistol = null;
-            StartCoroutine(Tooltips());
-            Flashlight.SetActive(onoff);
-        }*/
-/*        if (Input.GetKeyDown(KeyCode.F))
-        {
-            onoff = !onoff;
-            Flashlight.SetActive(onoff);
-        }*/
+        /*        if (Input.GetKey(KeyCode.F) && Pistol != null)
+                {
+                    Pistol.SetActive(false);
+                    Gun.SetActive(true);
+                    Pistol = null;
+                    StartCoroutine(Tooltips());
+                    Flashlight.SetActive(onoff);
+                }*/
+        /*        if (Input.GetKeyDown(KeyCode.F))
+                {
+                    onoff = !onoff;
+                    Flashlight.SetActive(onoff);
+                }*/
 
-        
+
         //@ARTHUR
         //Flashlight will be moved to GunManager.cs if the feature is needed
         isGrounded = characterController.isGrounded;
@@ -52,36 +52,43 @@ public class Movement : MonoBehaviour
             bobController.SetBool("Walking", isGrounded && movement.sqrMagnitude > 0); //evaluates to true when on floor && when moving
         }
     }
-/*    void OnTriggerEnter(Collider other)
-    {
-        Movement.Frozen = false;
 
 
-*//*        if (other.tag == "Guns")
+
+
+
+
+
+    /*    void OnTriggerEnter(Collider other)
         {
-            tooltips.text = "Press 'F' to pick up the gun";
-            Pistol = other.gameObject;
-        }*//*
+            Movement.Frozen = false;
 
 
-    }
-    private void OnTriggerExit(Collider other)
-    {
-*//*        if (other.tag == "Guns")
+    *//*        if (other.tag == "Guns")
+            {
+                tooltips.text = "Press 'F' to pick up the gun";
+                Pistol = other.gameObject;
+            }*//*
+
+
+        }
+        private void OnTriggerExit(Collider other)
         {
-            tooltips.text = " ";
-            Pistol = null;
-        }*//*
-    }
+    *//*        if (other.tag == "Guns")
+            {
+                tooltips.text = " ";
+                Pistol = null;
+            }*//*
+        }
 
-*//*    IEnumerator Tooltips()
-    {
-        yield return new WaitForSeconds(1);
-        tooltips.text = "Press F: Built in Flashlight \n Press R:Reaload Mag";
-        //tooltips.text = tooltips.text.Replace("\\n", "\n");
-        yield return new WaitForSeconds(5);
-        tooltips.text = "";
+    *//*    IEnumerator Tooltips()
+        {
+            yield return new WaitForSeconds(1);
+            tooltips.text = "Press F: Built in Flashlight \n Press R:Reaload Mag";
+            //tooltips.text = tooltips.text.Replace("\\n", "\n");
+            yield return new WaitForSeconds(5);
+            tooltips.text = "";
 
-    }*/
+        }*/
 
 }
