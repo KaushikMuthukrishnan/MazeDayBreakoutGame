@@ -10,6 +10,11 @@ public class Controls : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        //There is a rare glitch where the character freezes upon loading, which is resolved when toggling on and off the CC
+        //This code is meant to simulate that toggle to reduce the chance of this glitch
     }
     private void OnTriggerEnter(Collider other)
     {
