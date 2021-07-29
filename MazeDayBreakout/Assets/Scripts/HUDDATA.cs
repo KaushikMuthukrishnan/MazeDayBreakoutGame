@@ -10,6 +10,8 @@ public class HUDDATA : MonoBehaviour
     // Start is called before the first frame update
     public float health = 100;
     public float stamina = 100;
+    public float health1;
+    public bool damaged = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +21,28 @@ public class HUDDATA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //DECREASE HEALTH when c is pressed
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.D))
         {
             health -= 1;
-            Debug.Log("Health: " + health);
-        }
+            Debug.Log("OUCH");
 
-        //screen gets more red as health decreases
-        health = Mathf.Clamp(health, 0, 100);
-        GetComponent<Renderer>().material.color = new Color(1, 1, 1, Mathf.Clamp01(health / 100));
+        }
+        DamageIndicator();
+    }
+    public void DamageIndicator()
+    {
+
+        if (health > health1)
+        {
+            Debug.Log("Health: " + health);
+            health1 = health;
+        }
 
 
     }
+
+
 }
+
