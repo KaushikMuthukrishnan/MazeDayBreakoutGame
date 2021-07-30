@@ -26,10 +26,10 @@ public class Movement : MonoBehaviour
         //!Please delete this before final production of game
         if (Input.GetKeyDown(KeyCode.C))
         {
-            GameObject.Find("Main Camera").GetComponent<Controls>().enabled = true;
             var p = gameObject.GetComponent<PlayableDirector>();
             p.time = p.playableAsset.duration;
         }
+
         isGrounded = characterController.isGrounded;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
