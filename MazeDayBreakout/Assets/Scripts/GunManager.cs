@@ -10,7 +10,7 @@ public class GunManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            tooltip.text = "Press F to pick up";
+            tooltip.text = "Press F to pick up the weapon";
             //@UIPerson, add visual appeal here if needed
             StartCoroutine(PromptGunPick());
         }
@@ -28,7 +28,7 @@ public class GunManager : MonoBehaviour
 
     IEnumerator PromptGunPick()
     {
-        yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.F));
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F));
         Transform t;
         if (transform.childCount > 0) //makes sure there is a child so t.getChild doesnt return an error
         {
