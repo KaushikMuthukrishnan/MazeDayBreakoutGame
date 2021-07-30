@@ -7,18 +7,12 @@ using UnityEngine;
 //Switching to the Timeline usage for cutscenes
 //Delete if not needed
 
-
-
-
-
-
 public class Wakeup : MonoBehaviour
 {
     public Camera MainCamera, Cutscene;
     public GameObject Player;
     public CharacterController characterController;
     // bool frozen = true;
-
     // Start is called before the first frame update
     void Start()
     {

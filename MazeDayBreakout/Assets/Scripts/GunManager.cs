@@ -10,17 +10,18 @@ public class GunManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            tooltip.text = "Press F to pick up";
+            tooltip.text = "Press F to pick up the weapon";
             //@UIPerson, add visual appeal here if needed
             StartCoroutine(PromptGunPick());
+
         }
     }
-
+    //on trigger exit never runs 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            tooltip.text = "";
+            tooltip.text = " ";
             StopCoroutine(PromptGunPick());
 
         }
@@ -28,7 +29,7 @@ public class GunManager : MonoBehaviour
 
     IEnumerator PromptGunPick()
     {
-        yield return new WaitUntil(()=>Input.GetKeyDown(KeyCode.F));
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F));
         Transform t;
         if (transform.childCount > 0) //makes sure there is a child so t.getChild doesnt return an error
         {
@@ -37,6 +38,8 @@ public class GunManager : MonoBehaviour
             t.SetParent(parentOnPick);
             Destroy(transform.gameObject);
         }
+
+
         //This sequence makes the orphan Gun as a child of the Main Camera
         //Also sets the transform and rotation to match the preset object on the Cam
         yield return null;
