@@ -8,7 +8,6 @@ public class HUDDATA : MonoBehaviour
     // Start is called before the first frame update
     public float health = 100;
     // public float stamina = 100;
-    public bool damaged = false;
     public Text HealthText;
     public Slider HealthSlider;
     // Start is called before the first frame update
@@ -34,8 +33,6 @@ public class HUDDATA : MonoBehaviour
     public void DamageIndicator()
     {
         HealthSlider.value = health;
-
-
     }
 
 
