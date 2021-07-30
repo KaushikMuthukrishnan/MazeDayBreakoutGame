@@ -22,7 +22,8 @@ public class HUDDATA : MonoBehaviour
     {
         HealthText.text = "" + health + "%";
 
-        if (Input.GetKeyDown(KeyCode.D))
+        //Changed to E from D since it overlaps with WASD controls
+        if (Input.GetKeyDown(KeyCode.E))
         {
             health -= 10;
             Debug.Log("OUCH -10 health");
