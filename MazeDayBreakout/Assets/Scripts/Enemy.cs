@@ -7,10 +7,12 @@ public class Enemy : MonoBehaviour
 {
     public float health = 100;
     public float damage = 5;
+    private Transform player;
     public Animator deathAnim;
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(Shoot());
     }
 
@@ -18,17 +20,21 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
+            StopCoroutine(Shoot());
             Die();
             return;
         }
         //look at the player
-        transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+        transform.LookAt(player);
     }
 
     private IEnumerator Shoot()
     {
-        
-
+        while (health > 0)
+        {
+            Physics.Raycast
+            yield return new WaitForSeconds(Random.Range(1, 4));
+        }
         yield break;
     }
 
@@ -36,6 +42,12 @@ public class Enemy : MonoBehaviour
     {
         deathAnim.Play("RobotDeath");
         Destroy(transform.gameObject);
+    }
+
+    //Similar to HUDDATA.takeDamage(), but for the enemy bots
+    public void TakeDamage(int damageTaken)
+    {
+        health -= damageTaken;
     }
 }
 

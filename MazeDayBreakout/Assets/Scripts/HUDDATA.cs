@@ -5,17 +5,10 @@ using UnityEngine.UI;
 
 public class HUDDATA : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float health = 100;
     // public float stamina = 100;
     public Text HealthText;
     public Slider HealthSlider;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +27,12 @@ public class HUDDATA : MonoBehaviour
     public void DamageIndicator()
     {
         HealthSlider.value = health;
+    }
+
+    //This method is to be accessed by the enemy scripts so that if their shooting raycast hits the player, they can call this method attached to the player
+    public void TakeDamage(int damageTaken)
+    {
+        health -= damageTaken;
     }
 
 
