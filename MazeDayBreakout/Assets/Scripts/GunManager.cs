@@ -8,6 +8,7 @@ public class GunManager : MonoBehaviour
 {
     public Transform parentOnPick;
     public TextMeshProUGUI tooltip;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -18,7 +19,11 @@ public class GunManager : MonoBehaviour
 
         }
     }
+<<<<<<< refs/remotes/origin/main
     //on trigger exit never runs beacuse the oject is destroyed. So I moved it down.
+=======
+    //on trigger exit never runs so i moved it down 
+>>>>>>> Work In Progress Shooting Script
 
     IEnumerator PromptGunPick()
     {
@@ -32,6 +37,10 @@ public class GunManager : MonoBehaviour
             Destroy(transform.gameObject);
             tooltip.text = " ";
             StopCoroutine(PromptGunPick());
+<<<<<<< refs/remotes/origin/main
+=======
+
+>>>>>>> Work In Progress Shooting Script
         }
 
 
@@ -40,4 +49,6 @@ public class GunManager : MonoBehaviour
         yield return null;
 
     }
+
+
 }
