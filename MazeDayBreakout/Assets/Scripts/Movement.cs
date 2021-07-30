@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Timeline;
 using UnityEngine.Playables;
 
 // Ok so it looks like there is a bug where if the player holds down the movement keys the camera will bob in the cutscene. It looks werid.
