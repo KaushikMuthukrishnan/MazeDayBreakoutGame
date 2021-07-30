@@ -4,8 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.Timeline;
 using UnityEngine.Playables;
 
-// Ok so it looks like there is a bug where if the player holds down the movement keys the camera will bob even in the cutscene. It looks werid.
-// When going down stairs the player tends to float which is weird. I think we should just hard lock the player to the floor. 
+// Ok so it looks like there is a bug where if the player holds down the movement keys the camera will bob in the cutscene. It looks werid.
+// When going down stairs the player tends to keep flating in one dirction which is weird. I think we should just hard lock the player to the floor. 
 public class Movement : MonoBehaviour
 {
     float speed = 5f;
@@ -30,16 +30,11 @@ public class Movement : MonoBehaviour
             var p = gameObject.GetComponent<PlayableDirector>();
             p.time = p.playableAsset.duration;
         }
-
-
-        //@ARTHUR
-        //Flashlight will be moved to GunManager.cs if the feature is needed
         isGrounded = characterController.isGrounded;
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
         speed = Input.GetKey(KeyCode.LeftShift) ? runspeed : 5f;
         bobController.SetBool("Sprinting", bobController.GetBool("Walking") && Input.GetKey(KeyCode.LeftShift)); //triggers sprinting bob only when walking and holding shift
-
         if (!Movement.Frozen)
         {
             Vector3 movement = transform.right * x + transform.forward * y;

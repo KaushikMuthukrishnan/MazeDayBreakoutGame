@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
+//I think we should move the gun closer to the camera. It underwhelming for it to be so small.
 public class GunManager : MonoBehaviour
 {
     public Transform parentOnPick;
@@ -16,16 +18,7 @@ public class GunManager : MonoBehaviour
 
         }
     }
-    //on trigger exit never runs 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            tooltip.text = " ";
-            StopCoroutine(PromptGunPick());
-
-        }
-    }
+    //on trigger exit never runs beacuse the oject is destroyed. So I moved it down.
 
     IEnumerator PromptGunPick()
     {
@@ -37,6 +30,8 @@ public class GunManager : MonoBehaviour
             t.transform.SetPositionAndRotation(parentOnPick.transform.position, parentOnPick.transform.rotation);
             t.SetParent(parentOnPick);
             Destroy(transform.gameObject);
+            tooltip.text = " ";
+            StopCoroutine(PromptGunPick());
         }
 
 

@@ -21,11 +21,11 @@ public class HUDDATA : MonoBehaviour
     void Update()
     {
         HealthText.text = "" + health + "%";
-        //DECREASE HEALTH when c is pressed
+
         if (Input.GetKeyDown(KeyCode.D))
         {
             health -= 10;
-            Debug.Log("OUCH");
+            Debug.Log("OUCH -10 health");
 
         }
         DamageIndicator();
