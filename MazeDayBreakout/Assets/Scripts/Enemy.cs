@@ -22,12 +22,6 @@ public class Enemy : MonoBehaviour
 
 
         //move towards the player until we are within a certain distance
-        if (transform.position.x < GameObject.FindGameObjectWithTag("Player").transform.position.x)
-        {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
-        }
-        else if (transform.position.x > GameObject.FindGameObjectWithTag("Player").transform.position.x)
-
 
 
     }
