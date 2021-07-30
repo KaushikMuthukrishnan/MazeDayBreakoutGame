@@ -5,6 +5,7 @@ using UnityEngine.Timeline;
 using UnityEngine.Playables;
 
 // Ok so it looks like there is a bug where if the player holds down the movement keys the camera will bob even in the cutscene. It looks werid.
+// When going down stairs the player tends to float which is weird. I think we should just hard lock the player to the floor. 
 public class Movement : MonoBehaviour
 {
     float speed = 5f;
