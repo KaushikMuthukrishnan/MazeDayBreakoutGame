@@ -8,9 +8,9 @@ public class Enemy : MonoBehaviour
     public float health = 100;
     public float damage = 5;
     public Animator deathAnim;
-    public Transform player;
     public ParticleSystem fireBurst;
-    public Transform laserLight;
+    public Transform laserLight, muzzle, player;
+    public HUDDATA playerHud;
 
     private void Start()
     {
@@ -25,41 +25,43 @@ public class Enemy : MonoBehaviour
         //look at the player
         transform.LookAt(player);
         //turn light towards player
-        //laserLight.LookAt(player);
+        laserLight.LookAt(player.position + Vector3.up * 2); //translated up so laser is in cameras
     }
 
 
-    private void OnDrawGizmos()
+/*    private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(player.position, 2f);
 
-    }
+    }*/
     private void Shoot()
     {
-        if (health > 0)
+        if (health <= 0)
         {
-            //finds a random poin =t in the vicinity of player so robots arent lazer focused on player with each shot
-            var randPoint = Random.insideUnitSphere * 2f;
-            var target = player.position + randPoint;
-            
-            fireBurst.Play();
-
-            Debug.DrawLine(transform.position, target, Color.white, 20);
-
-            //checks to see if player was hit on raycast, causes damage if so
-            if (Physics.Raycast(transform.position, target, out RaycastHit hit, 100, ~LayerMask.GetMask("Player", "EnvironmentalObjs")))
-            {
-                Debug.Log(hit.transform);
-                Debug.Log("raycast hit");
-                hit.transform.GetComponentInChildren<HUDDATA>().TakeDamage(10); //TODO change damage value if necessary
-            }
-
-        }
-        else
-        {
-            CancelInvoke("Shoot");
             Die();
+            CancelInvoke("Shoot");
             return;
+        }
+        //finds a random point in the vicinity of player so robots arent lazer focused on player with each shot
+        //aka adds randomness to shots
+        var randPoint = Random.insideUnitSphere * 3f; // *3 increases the radius of the sphere of randomness around player
+        var targetDir = randPoint + player.position - muzzle.position; //gets direction to be used for Phys.Raycast()
+            
+        fireBurst.Play();
+
+        //checks to see if player was hit on raycast, causes damage if so
+        if (Physics.Raycast(muzzle.position, targetDir, out RaycastHit hit, 30, LayerMask.GetMask("Player", "EnvironmentalObjs")) && hit.transform.gameObject != null);
+        {
+            //Weird null transform glitch
+            int layer = hit.transform.gameObject.layer;
+            if (layer == LayerMask.NameToLayer("EnvironmentalObjs"))
+            {
+                //TODO Add bullet holes FX Here
+            }
+            else if (layer == LayerMask.NameToLayer("Player"))
+            {
+                playerHud.TakeDamage(10);
+            }
         }
     }
 

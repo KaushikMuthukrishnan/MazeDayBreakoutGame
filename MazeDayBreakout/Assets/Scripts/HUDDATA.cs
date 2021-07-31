@@ -34,7 +34,6 @@ public class HUDDATA : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         health -= damageTaken;
-        Debug.Log("hit");
     }
 
 

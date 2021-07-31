@@ -2965,6 +2965,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120126958810934792, guid: 1310908f07bd0d24aa8aaddbb080dbb4,
         type: 3}
+      propertyPath: m_Positions.Array.data[1].x
+      value: 0.0000004047414
+      objectReference: {fileID: 0}
+    - target: {fileID: 120126958810934792, guid: 1310908f07bd0d24aa8aaddbb080dbb4,
+        type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: -0.000002861023
+      objectReference: {fileID: 0}
+    - target: {fileID: 120126958810934792, guid: 1310908f07bd0d24aa8aaddbb080dbb4,
+        type: 3}
+      propertyPath: m_Positions.Array.data[1].z
+      value: 21.293173
+      objectReference: {fileID: 0}
+    - target: {fileID: 120126958810934792, guid: 1310908f07bd0d24aa8aaddbb080dbb4,
+        type: 3}
       propertyPath: m_Parameters.colorGradient.ctime0
       value: 0
       objectReference: {fileID: 0}
@@ -3005,6 +3020,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1310908f07bd0d24aa8aaddbb080dbb4, type: 3}
+--- !u!4 &423511447 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4342867958046758, guid: 1310908f07bd0d24aa8aaddbb080dbb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 403532603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &432360688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4455,9 +4476,10 @@ MonoBehaviour:
   health: 100
   damage: 5
   deathAnim: {fileID: 618952447}
-  player: {fileID: 1896564429}
   fireBurst: {fileID: 178166281}
   laserLight: {fileID: 82756552}
+  muzzle: {fileID: 423511447}
+  player: {fileID: 1896564429}
 --- !u!4 &618952449
 Transform:
   m_ObjectHideFlags: 0
@@ -7253,7 +7275,6 @@ GameObject:
   - component: {fileID: 1058750721}
   - component: {fileID: 1058750724}
   - component: {fileID: 1058750723}
-  - component: {fileID: 1058750722}
   m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
@@ -7275,20 +7296,6 @@ Transform:
   m_Father: {fileID: 1896564429}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1058750722
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058750720}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1058750723
 MeshRenderer:
   m_ObjectHideFlags: 0
