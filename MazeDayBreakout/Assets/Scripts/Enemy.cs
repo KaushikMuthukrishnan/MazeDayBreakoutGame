@@ -9,13 +9,15 @@ public class Enemy : MonoBehaviour
     public float damageInflicted = 5;
     public float shootingSpread = 2;
     public float fireRate = 1;
-    public Animator deathAnim;
+    public Animator roboAnimator;
     public ParticleSystem fireBurst;
     public Transform laserLight, muzzle, player;
     public HUDDATA playerHud;
 
     private void Start()
     {
+        player = GameObject.Find("Player").transform;
+        playerHud = GameObject.Find("Player HUD").GetComponent<HUDDATA>();
         //calls the shoot method at 2 second intervals, almost like a coroutine
         //the random.value is so all bots dont start firing at the same time
         InvokeRepeating("Shoot", Random.value, fireRate);
@@ -24,9 +26,9 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         //look at the player
-        transform.LookAt(player);
+        transform.LookAt(player.position);
         //turn light towards player
-        laserLight.LookAt(player.position + Vector3.up * 2); //translated up so laser is in cameras
+        laserLight.LookAt(player.position + Vector3.up * 2); //translated up so laser is in cameras FOV
     }
 
     private void Shoot()
@@ -62,7 +64,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        deathAnim.Play("RobotDeath");
+        roboAnimator.Play("RobotDeath");
         Destroy(transform.gameObject);
     }
 
