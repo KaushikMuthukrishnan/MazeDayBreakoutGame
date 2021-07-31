@@ -9,7 +9,6 @@ public class GunShoot : MonoBehaviour
 
     public GameObject m_shotPrefab;
 
-    RaycastHit hit;
     float range = 1000.0f;
 
 
@@ -30,16 +29,22 @@ public class GunShoot : MonoBehaviour
     void ShootRay()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit, range))
+        //^^^^^^
+        //This might not work since mouse will be locked at center
+        //I would instead recommend, the creation of a ray with
+        //origin as the position of Cam and Ray.direction to be Cam.transform.forward
+        if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
             //generagte a new shot
             GameObject laser = (GameObject)Instantiate(m_shotPrefab, hit.point, Quaternion.identity);
             laser.GetComponent<Rigidbody>().AddForce(ray.direction * 100.0f);
             // GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
             // laser.GetComponent<ShotBehavior>().setTarget(hit.point);
+            
+            //Also for the lazer, I would check out the Line renderer cuz its much simpler to turn on and off than to instantiate new gameojects
+            //it takes a while to get used to tho
 
-            GameObject.Destroy(laser, 2f);
+            Destroy(laser, 2f);
 
 
         }

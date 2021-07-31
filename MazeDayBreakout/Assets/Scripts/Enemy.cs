@@ -6,7 +6,9 @@ using UnityEngine.Playables;
 public class Enemy : MonoBehaviour
 {
     public float health = 100;
-    public float damage = 5;
+    public float damageInflicted = 5;
+    public float shootingSpread = 2;
+    public float fireRate = 1;
     public Animator deathAnim;
     public ParticleSystem fireBurst;
     public Transform laserLight, muzzle, player;
@@ -16,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         //calls the shoot method at 2 second intervals, almost like a coroutine
         //the random.value is so all bots dont start firing at the same time
-        InvokeRepeating("Shoot", Random.value, 1);
+        InvokeRepeating("Shoot", Random.value, fireRate);
     }
 
     void Update()
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
         //finds a random point in the vicinity of player so robots arent lazer focused on player with each shot
         //aka adds randomness to shots
-        var randPoint = Random.insideUnitSphere * 3f; // * 3 increases the radius of the sphere of randomness around player
+        var randPoint = Random.insideUnitSphere * shootingSpread; // * 2 increases the radius of the sphere of randomness around player
         var targetDir = randPoint + player.position - muzzle.position; //gets direction argument to be used for Phys.Raycast()
             
         fireBurst.Play();
