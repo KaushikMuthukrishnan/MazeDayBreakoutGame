@@ -29,10 +29,12 @@ public class HUDDATA : MonoBehaviour
         HealthSlider.value = health;
     }
 
-    //This method is to be accessed by the enemy scripts so that if their shooting raycast hits the player, they can call this method attached to the player
+    //This method is to be accessed by the enemy scripts so that if their shooting raycast hits the player,
+    ////they can call this method attached to the player
     public void TakeDamage(int damageTaken)
     {
         health -= damageTaken;
+        Debug.Log("hit");
     }
 
 

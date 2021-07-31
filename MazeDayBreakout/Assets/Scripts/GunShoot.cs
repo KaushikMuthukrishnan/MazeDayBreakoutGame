@@ -20,14 +20,14 @@ public class GunShoot : MonoBehaviour
         {
             if (Time.time > m_shootRateTimeStamp)
             {
-                shootRay();
+                ShootRay();
                 m_shootRateTimeStamp = Time.time + shootRate;
             }
         }
 
     }
 
-    void shootRay()
+    void ShootRay()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
