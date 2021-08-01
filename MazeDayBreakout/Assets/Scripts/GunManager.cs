@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-//I think we should move the gun closer to the camera. It underwhelming for it to be so small.
+//I think we should move the gun closer to the camera. It feels underwhelming for it to be so small.
 public class GunManager : MonoBehaviour
 {
     public Transform parentOnPick;
