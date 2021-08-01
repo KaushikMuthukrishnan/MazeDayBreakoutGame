@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class DoorSlide : MonoBehaviour
 {
-    public GameObject LeftDoor;
-    public GameObject RightDoor;
+    public GameObject Future_Door;
+
 
     // Update is called once per frame
     void Update()
     {
-
-
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
+        //when the player press space animation will start
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            Future_Door.GetComponent<Animator>().SetTrigger("Trigger");
 
-            LeftDoor.transform.position = new Vector3(transform.position.x + 1f, LeftDoor.transform.position.y, LeftDoor.transform.position.z);
-            RightDoor.transform.position = new Vector3(transform.position.x + 1f, RightDoor.transform.position.y, RightDoor.transform.position.z);
+            Debug.Log("Slide");
+
         }
 
+
+
+
+
     }
+
 }
