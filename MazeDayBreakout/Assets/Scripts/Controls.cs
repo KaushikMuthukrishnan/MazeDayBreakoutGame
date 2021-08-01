@@ -17,14 +17,14 @@ public class Controls : MonoBehaviour
         //There is a rare glitch where the character freezes upon loading, which is resolved when toggling on and off the CC
         //This code is meant to simulate that toggle to reduce the chance of this glitch
     }
-    private void OnTriggerEnter(Collider other)
+/*    private void OnTriggerEnter(Collider other)
     {
         Movement.Frozen = false;
         // Debug.Log("TRIGGERED!");
-    }
+    }*/
     void Update()
     {
-        if (Movement.Frozen)
+        if (Movement.frozen)
             return;
         float MouseX = Input.GetAxis("Mouse X") * lookSensitivity; //see above for rotSensitivity scale
         float MouseY = Input.GetAxis("Mouse Y") * lookSensitivity;

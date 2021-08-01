@@ -8,10 +8,12 @@ public class GunManager : MonoBehaviour
 {
     public Transform parentOnPick;
     public TextMeshProUGUI tooltip;
+    private string originalText;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            originalText = tooltip.text; //placeholder for what was originally here, should be an empty string during actual game
             tooltip.text = "Press F to pick up the weapon";
             //@UIPerson, add visual appeal here if needed
             StartCoroutine(PromptGunPick());
@@ -30,7 +32,7 @@ public class GunManager : MonoBehaviour
             t.transform.SetPositionAndRotation(parentOnPick.transform.position, parentOnPick.transform.rotation);
             t.SetParent(parentOnPick);
             Destroy(transform.gameObject);
-            tooltip.text = " ";
+            tooltip.text = originalText;
             StopCoroutine(PromptGunPick());
         }
 
@@ -38,6 +40,14 @@ public class GunManager : MonoBehaviour
         //This sequence makes the orphan Gun as a child of the Main Camera
         //Also sets the transform and rotation to match the preset object on the Cam
         yield return null;
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            StopCoroutine(PromptGunPick());
+            tooltip.text = originalText;
+        }
     }
 }

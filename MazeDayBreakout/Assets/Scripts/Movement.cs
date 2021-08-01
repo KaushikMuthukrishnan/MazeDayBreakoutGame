@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     public GameObject Gun;
     bool onoff = false;
     public GameObject Flashlight;
-    public static bool Frozen = false;
+    public static bool frozen = false;
 
     void Update()
     {
@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour
         float y = Input.GetAxis("Vertical");
         speed = Input.GetKey(KeyCode.LeftShift) ? runspeed : 5f;
         bobController.SetBool("Sprinting", bobController.GetBool("Walking") && Input.GetKey(KeyCode.LeftShift)); //triggers sprinting bob only when walking and holding shift
-        if (!Movement.Frozen)
+        if (!Movement.frozen)
         {
             Vector3 movement = transform.right * x + transform.forward * y;
             movement = movement.normalized;

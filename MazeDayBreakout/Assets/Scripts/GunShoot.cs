@@ -29,10 +29,7 @@ public class GunShoot : MonoBehaviour
     void ShootRay()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //^^^^^^
-        //This might not work since mouse will be locked at center
-        //I would instead recommend, the creation of a ray with
-        //origin as the position of Cam and Ray.direction to be Cam.transform.forward
+
         if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
             //generagte a new shot
@@ -41,7 +38,7 @@ public class GunShoot : MonoBehaviour
             // GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
             // laser.GetComponent<ShotBehavior>().setTarget(hit.point);
             
-            //Also for the lazer, I would check out the Line renderer cuz its much simpler to turn on and off than to instantiate new gameojects
+            //For the lazer, I would check out the Line renderer cuz its much simpler to turn on and off than to instantiate new gameojects
             //it takes a while to get used to tho
 
             Destroy(laser, 2f);
