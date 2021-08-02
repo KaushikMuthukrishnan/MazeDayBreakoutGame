@@ -44,9 +44,10 @@ public class DoorSlide : MonoBehaviour
         {
             Future_Door.GetComponent<Animator>().SetTrigger("Close");
             neverDone = true;
-            text.text = " ";
             // Debug.Log("Trigger exited");
         }
+        triggerEntered = false;
+        text.text = "";
     }
 
 

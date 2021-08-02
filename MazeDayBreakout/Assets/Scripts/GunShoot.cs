@@ -9,7 +9,7 @@ public class GunShoot : MonoBehaviour
 
     public GameObject shotPrefab;
 
-    float range = 100.0f;
+
     public Camera camera;
     public GameObject Gun;
 
@@ -19,7 +19,6 @@ public class GunShoot : MonoBehaviour
 
     void Update()
     {
-
         if (Input.GetMouseButton(0))
         {
             if (Time.time > TimeStamp)
@@ -35,17 +34,28 @@ public class GunShoot : MonoBehaviour
     {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, range))
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
 
 
-            if (Gun.transform.parent)
+            //check if the gun is in the players hands
+            if (Gun.transform.parent.gameObject == GameObject.Find("GunPlaceHolder"))
             {
-                GameObject laser = GameObject.Instantiate(shotPrefab, transform.position, transform.rotation) as GameObject;
+
+                GameObject laser = GameObject.Instantiate(shotPrefab, transform.position, transform.rotation);
                 laser.transform.LookAt(hit.point);
                 laser.GetComponent<ShotBehavior>().setTarget(hit.point);
-                Destroy(laser, 0.5f);
+                //stole shotbehavior from the internet lol
+                Destroy(laser, 0.25f);
             }
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.point != null)
+                {
+
+                }
+            }
+
 
 
         }
@@ -55,6 +65,7 @@ public class GunShoot : MonoBehaviour
         //it takes a while to get used to tho
 
         //?thats true, but I think if we had more time we can try the line renderer. But this works for now.
+        //TODO: Need to fix a bug where the laser goes through the wall. 
 
 
 
