@@ -9,7 +9,8 @@ public class GunShoot : MonoBehaviour
 
     public GameObject m_shotPrefab;
 
-    float range = 1000.0f;
+    float range = 50.0f;
+    public Camera camera;
 
 
     void Update()
@@ -28,25 +29,36 @@ public class GunShoot : MonoBehaviour
 
     void ShootRay()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
-            //generagte a new shot
-            GameObject laser = (GameObject)Instantiate(m_shotPrefab, hit.point, Quaternion.identity);
-            laser.GetComponent<Rigidbody>().AddForce(ray.direction * 100.0f);
-            // GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
+            //generate a new shot
+
+            // GameObject laser = (GameObject)Instantiate(m_shotPrefab, hit.point, Quaternion.identity);
+            GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
             // laser.GetComponent<ShotBehavior>().setTarget(hit.point);
-            
-            //For the lazer, I would check out the Line renderer cuz its much simpler to turn on and off than to instantiate new gameojects
-            //it takes a while to get used to tho
+            laser.GetComponent<Rigidbody>().AddForce(ray.direction * 2.0f);
+
 
             Destroy(laser, 2f);
-
-
         }
+
+
+
+
+
+
+        //For the lazer, I would check out the Line renderer cuz its much simpler to turn on and off than to instantiate new gameojects
+        //it takes a while to get used to tho
+
+        //?thats true, but I think if we had more time we can try the line renderer. But this works for now.
+
+
+
 
     }
 
-
 }
+
+
