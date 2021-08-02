@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class GunShoot : MonoBehaviour
 {
-    public float shootRate = 0.5f;
-    private float m_shootRateTimeStamp;
+    public float shootRate;
+    private float TimeStamp;
 
-    public GameObject m_shotPrefab;
+    public GameObject shotPrefab;
 
-    float range = 1000.0f;
+    float range = 100.0f;
     public Camera camera;
+
+
 
 
 
@@ -19,10 +21,10 @@ public class GunShoot : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (Time.time > m_shootRateTimeStamp)
+            if (Time.time > TimeStamp)
             {
                 ShootRay();
-                m_shootRateTimeStamp = Time.time + shootRate;
+                TimeStamp = Time.time + shootRate;
             }
         }
 
@@ -35,22 +37,13 @@ public class GunShoot : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, range))
         {
             //generate a new shot
-
-
             // GameObject laser = (GameObject)Instantiate(m_shotPrefab, hit.point, Quaternion.identity);
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
             laser.transform.LookAt(hit.point);
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
-            //Ok so I copied "shotBehavior" From the internet 
-            // laser.GetComponent<Rigidbody>().AddForce(ray.direction * 1.0f);
-
 
             Destroy(laser, 2f);
         }
-
-
-
-
 
 
         //For the lazer, I would check out the Line renderer cuz its much simpler to turn on and off than to instantiate new gameojects
