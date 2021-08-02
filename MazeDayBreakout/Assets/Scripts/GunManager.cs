@@ -8,7 +8,13 @@ public class GunManager : MonoBehaviour
 {
     public Transform parentOnPick;
     public TextMeshProUGUI tooltip;
+    public GameObject Crosshair;
     private string originalText;
+    private void Start()
+    {
+        Crosshair = GameObject.Find("Crosshair");
+        Crosshair.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -33,6 +39,7 @@ public class GunManager : MonoBehaviour
             t.SetParent(parentOnPick);
             Destroy(transform.gameObject);
             tooltip.text = originalText;
+            Crosshair.SetActive(true);
             StopCoroutine(PromptGunPick());
         }
 

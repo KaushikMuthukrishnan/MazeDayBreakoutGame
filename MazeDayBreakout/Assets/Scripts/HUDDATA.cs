@@ -6,16 +6,13 @@ using UnityEngine.UI;
 public class HUDDATA : MonoBehaviour
 {
     public float health = 100;
-    // public float stamina = 100;
     public Text HealthText;
     public Slider HealthSlider;
 
-    // Update is called once per frame
     void Update()
     {
         HealthText.text = "" + health + "%";
-
-        //Changed to E from D since it overlaps with WASD controls
+        //!Debug Script: remove when done
         if (Input.GetKeyDown(KeyCode.E))
         {
             health -= 10;
