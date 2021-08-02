@@ -40,6 +40,7 @@ public class GunManager : MonoBehaviour
             Destroy(transform.gameObject);
             tooltip.text = originalText;
             Crosshair.SetActive(true);
+            GunShoot.gunEnabled = true;
             StopCoroutine(PromptGunPick());
         }
 

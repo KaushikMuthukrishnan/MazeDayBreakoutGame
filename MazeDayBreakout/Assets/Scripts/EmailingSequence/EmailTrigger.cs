@@ -38,7 +38,7 @@ public class EmailTrigger : MonoBehaviour
 
 
         //TODO DELETE THIS BELOW IF STATEMENT< ONLY FOR TESTING
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             //Destroy(emailPanel)
             emailPanel.gameObject.SetActive(false);
