@@ -401,7 +401,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: TOP SECRET INFO
 --- !u!222 &60202004
@@ -1350,7 +1350,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2530,6 +2530,8 @@ GameObject:
   - component: {fileID: 259261912}
   - component: {fileID: 259261914}
   - component: {fileID: 259261913}
+  - component: {fileID: 259261916}
+  - component: {fileID: 259261915}
   m_Layer: 5
   m_Name: Image (4)
   m_TagString: Untagged
@@ -2595,6 +2597,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259261911}
   m_CullTransparentMesh: 1
+--- !u!225 &259261915
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259261911}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &259261916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259261911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f96785169b55b47922a8ecef051f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &299686421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2711,7 +2737,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: MiCraft
+  m_Text: 'Mine
+
+'
 --- !u!222 &329301655
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2790,7 +2818,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Discord
+  m_Text: Dischord
 --- !u!222 &353960533
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4815,6 +4843,8 @@ GameObject:
   - component: {fileID: 694357748}
   - component: {fileID: 694357750}
   - component: {fileID: 694357749}
+  - component: {fileID: 694357752}
+  - component: {fileID: 694357751}
   m_Layer: 5
   m_Name: Image (3)
   m_TagString: Untagged
@@ -4880,6 +4910,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694357747}
   m_CullTransparentMesh: 1
+--- !u!225 &694357751
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694357747}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &694357752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694357747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0edafea7a2fd7347bf3a848be566d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &765584746
 GameObject:
   m_ObjectHideFlags: 0
@@ -9539,7 +9593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16443,7 +16497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1189791123}
   emailPanel: {fileID: 1169670237}
-  inGamePanel: {fileID: 1650251529}
+  inGamePanel: {fileID: 1479612417}
 --- !u!1 &1650251525
 GameObject:
   m_ObjectHideFlags: 0
@@ -16919,7 +16973,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You-nity
+  m_Text: Unty
 --- !u!222 &1743027167
 CanvasRenderer:
   m_ObjectHideFlags: 0
