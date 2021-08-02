@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DoorSlide : MonoBehaviour
 {
     public GameObject Future_Door;
     public bool neverDone;
     public bool triggerEntered;
+    public TextMeshProUGUI text;
 
     void Start()
     {
         triggerEntered = false;
         neverDone = true;
+
+        //get components by name
+        text = GameObject.Find("ToolTips").GetComponent<TextMeshProUGUI>();
     }
     void Update()
     {
@@ -29,6 +34,7 @@ public class DoorSlide : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             triggerEntered = true;
+            text.text = "Press Space to Open The Door";
             // Debug.Log("Trigger entered");
         }
     }
@@ -38,6 +44,7 @@ public class DoorSlide : MonoBehaviour
         {
             Future_Door.GetComponent<Animator>().SetTrigger("Close");
             neverDone = true;
+            text.text = " ";
             // Debug.Log("Trigger exited");
         }
     }
