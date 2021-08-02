@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GunShoot : MonoBehaviour
 {
-    public float shootRate;
+    public float shootRate = 0.5f;
     private float m_shootRateTimeStamp;
 
     public GameObject m_shotPrefab;
 
-    float range = 50.0f;
+    float range = 1000.0f;
     public Camera camera;
+
 
 
     void Update()
@@ -35,10 +36,13 @@ public class GunShoot : MonoBehaviour
         {
             //generate a new shot
 
+
             // GameObject laser = (GameObject)Instantiate(m_shotPrefab, hit.point, Quaternion.identity);
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
-            // laser.GetComponent<ShotBehavior>().setTarget(hit.point);
-            laser.GetComponent<Rigidbody>().AddForce(ray.direction * 2.0f);
+            laser.transform.LookAt(hit.point);
+            laser.GetComponent<ShotBehavior>().setTarget(hit.point);
+            //Ok so I copied "shotBehavior" From the internet 
+            // laser.GetComponent<Rigidbody>().AddForce(ray.direction * 1.0f);
 
 
             Destroy(laser, 2f);

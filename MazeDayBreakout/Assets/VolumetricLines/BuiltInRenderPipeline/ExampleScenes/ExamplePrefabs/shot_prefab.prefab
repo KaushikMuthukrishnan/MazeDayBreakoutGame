@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136330}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.44, y: 0.91, z: 2.83}
-  m_LocalScale: {x: 0.02114845, y: 0.02114845, z: 0.02114845}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -0.02510744, y: 0.016395546, z: 0.030242905}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_startPos: {x: 0, y: 0, z: 0}
   m_endPos: {x: 0, y: 0, z: 50}
   m_lineColor: {r: 0.29578733, g: 1, b: 0, a: 0}
-  m_lineWidth: 66
-  m_lightSaberFactor: 0.747
+  m_lineWidth: 60
+  m_lightSaberFactor: 1
 --- !u!114 &11468384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cb039d3a64491f4ebfc852d25b5ee70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_target: {x: 0, y: 0, z: 0}
+  collisionExplosion: {fileID: 0}
+  speed: 0
 --- !u!108 &10825254
 Light:
   m_ObjectHideFlags: 0
@@ -128,7 +131,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0, g: 1, b: 0.011921644, a: 1}
   m_Intensity: 2
-  m_Range: 300
+  m_Range: 3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -169,7 +172,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
