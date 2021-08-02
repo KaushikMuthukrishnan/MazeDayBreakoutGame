@@ -12,10 +12,8 @@ public class Movement : MonoBehaviour
     public bool isGrounded;
     public CharacterController characterController;
     public Animator bobController;
-    public Text tooltips;
-    public GameObject Gun;
+
     bool onoff = false;
-    public GameObject Flashlight;
     public static bool frozen = false;
 
     void Update()

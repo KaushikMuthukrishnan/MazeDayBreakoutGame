@@ -26,8 +26,6 @@ public class GunManager : MonoBehaviour
 
         }
     }
-    //on trigger exit never runs beacuse the oject is destroyed. So I moved it down.
-
     IEnumerator PromptGunPick()
     {
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F));
@@ -42,8 +40,6 @@ public class GunManager : MonoBehaviour
             Crosshair.SetActive(true);
             StopCoroutine(PromptGunPick());
         }
-
-
         //This sequence makes the orphan Gun as a child of the Main Camera
         //Also sets the transform and rotation to match the preset object on the Cam
         yield return null;

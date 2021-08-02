@@ -34,7 +34,7 @@ public class DoorSlide : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             triggerEntered = true;
-            text.text = "Press Space to Open The Door";
+            text.text = "Press Space To Open Door";
             // Debug.Log("Trigger entered");
         }
     }

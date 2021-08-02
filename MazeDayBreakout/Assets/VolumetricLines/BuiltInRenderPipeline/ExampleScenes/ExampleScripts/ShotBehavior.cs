@@ -22,8 +22,9 @@ public class ShotBehavior : MonoBehaviour
             {
                 explode();
                 return;
+
             }
-            transform.position = Vector3.MoveTowards(transform.position, m_target, step);
+            // transform.position = Vector3.MoveTowards(transform.position, m_target, step);
         }
 
     }
@@ -37,8 +38,7 @@ public class ShotBehavior : MonoBehaviour
     {
         if (collisionExplosion != null)
         {
-            GameObject explosion = (GameObject)Instantiate(
-                collisionExplosion, transform.position, transform.rotation);
+            GameObject explosion = GameObject.Instantiate(collisionExplosion, transform.position, transform.rotation);
             Destroy(gameObject);
             Destroy(explosion, 1f);
         }
