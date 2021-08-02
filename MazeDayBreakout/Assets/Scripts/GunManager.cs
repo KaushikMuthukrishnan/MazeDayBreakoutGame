@@ -38,6 +38,7 @@ public class GunManager : MonoBehaviour
             Destroy(transform.gameObject);
             tooltip.text = originalText;
             Crosshair.SetActive(true);
+            GunShoot.gunEnabled = true;
             StopCoroutine(PromptGunPick());
         }
         //This sequence makes the orphan Gun as a child of the Main Camera

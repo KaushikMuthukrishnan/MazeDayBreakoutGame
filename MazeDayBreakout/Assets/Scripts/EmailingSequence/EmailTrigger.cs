@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class EmailTrigger : MonoBehaviour
 {
@@ -27,26 +28,12 @@ public class EmailTrigger : MonoBehaviour
             return;
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //Instantiate(emailPanel); //keep this if making a prefab for emailcanvas
-            emailPanel.gameObject.SetActive(true);
-            inGamePanel.gameObject.SetActive(false);
-            //TODO replace the setting active with a Activation Track in Timeline
-            Movement.frozen = true;
-
+            TurnOnEmail(true);
         }
-
-
 
         //TODO DELETE THIS BELOW IF STATEMENT< ONLY FOR TESTING
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            //Destroy(emailPanel)
-            emailPanel.gameObject.SetActive(false);
-            inGamePanel.gameObject.SetActive(true);
-            //TODO replace the setting active with a Activation Track in Timeline
-            Movement.frozen = false;
-
-        }
+        if (Input.GetKeyDown(KeyCode.P))
+            TurnOnEmail(false);
     }
     private void OnTriggerExit(Collider other)
     {
@@ -54,4 +41,15 @@ public class EmailTrigger : MonoBehaviour
             return;
         tooltip.text = originalText;
     }
+
+    private void TurnOnEmail(bool yes)
+    {
+        emailPanel.gameObject.SetActive(yes);
+        inGamePanel.gameObject.SetActive(!yes); //no
+        Movement.frozen = yes;
+        Cursor.visible = yes;
+        Cursor.lockState = yes ? CursorLockMode.Confined : CursorLockMode.Locked;
+    }
+
+    
 }

@@ -6,7 +6,8 @@ public class GunShoot : MonoBehaviour
 {
     private float TimeStamp;
     public GameObject shotPrefab;
-    public Camera camera;
+    public Camera cam;
+    //name changed cuz it was giving an error
     public GameObject Gun;
 
     private void Update()
@@ -22,7 +23,6 @@ public class GunShoot : MonoBehaviour
 
             }
         }
-
     }
 
     void Shoot()
@@ -59,7 +59,6 @@ public class GunShoot : MonoBehaviour
 
 
     }
-
 }
 
 
