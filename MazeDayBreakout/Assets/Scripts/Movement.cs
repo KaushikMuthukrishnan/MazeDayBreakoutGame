@@ -5,6 +5,7 @@ using UnityEngine.Playables;
 
 // Ok so it looks like there is a bug where if the player holds down the movement keys the camera will bob in the cutscene. It looks werid.
 // When going down stairs the player tends to keep flating in one dirction which is weird. I think we should just hard lock the player to the floor. 
+// !we are chainging the start. The user will now punch the lock in a animation insead of the player being in control. 
 public class Movement : MonoBehaviour
 {
     float speed = 5f;

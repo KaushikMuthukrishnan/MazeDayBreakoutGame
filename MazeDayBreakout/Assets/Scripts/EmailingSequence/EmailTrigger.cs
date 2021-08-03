@@ -4,10 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+//! Yo, I moved your coliider into the server room desk.
+
+
 public class EmailTrigger : MonoBehaviour
 {
     public TextMeshProUGUI tooltip;
-    public CanvasGroup emailPanel, inGamePanel;  
+    public CanvasGroup emailPanel, inGamePanel;
     private string originalText;
 
     private void Awake()
@@ -51,5 +55,5 @@ public class EmailTrigger : MonoBehaviour
         Cursor.lockState = yes ? CursorLockMode.Confined : CursorLockMode.Locked;
     }
 
-    
+
 }
