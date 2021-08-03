@@ -12,7 +12,7 @@ public class MailApp : MonoBehaviour
         hoverBkgd.SetActive(true);
         //for highlighting the object
     }
-    private void OnMouseUpAsButton()
+    public void OpenMail()
     {
         emailApp.SetActive(true);
     }
