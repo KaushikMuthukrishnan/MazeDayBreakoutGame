@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class MailApp : MonoBehaviour
 {
+    public GameObject hoverBkgd;
+    public GameObject emailApp;
 
-    private void OnMouseOver()
+    public void OnHighLight()
     {
+        hoverBkgd.SetActive(true);
         //for highlighting the object
     }
-
-    private void OnMouseDown()
+    private void OnMouseUpAsButton()
     {
-        //open app
+        emailApp.SetActive(true);
+    }
+    public void OffHighLight()
+    {
+        hoverBkgd.SetActive(false);
     }
 }

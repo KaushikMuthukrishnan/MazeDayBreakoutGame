@@ -3,29 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FolderDrag : MonoBehaviour, IPointerDownHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class FolderDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    private void OnMouseOver()
+    public GameObject hoverBkgd;
+    public RectTransform folder;
+    public void OnHighLight()
     {
+        hoverBkgd.SetActive(true);
         //for highlighting the object
     }
-    public void OnPointerDown(PointerEventData eventData)
+    public void OffHighLight()
     {
-        throw new System.NotImplementedException();
+        hoverBkgd.SetActive(false);
+    }
+    private void Start()
+    {
+        folder = GetComponent<RectTransform>();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        folder.anchoredPosition += eventData.delta;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

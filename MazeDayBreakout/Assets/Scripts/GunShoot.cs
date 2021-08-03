@@ -29,7 +29,7 @@ public class GunShoot : MonoBehaviour
     void Shoot()
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        if (gunEnabled && Physics.Raycast(ray, out RaycastHit hit))
+        if (gunEnabled && !Movement.frozen && Physics.Raycast(ray, out RaycastHit hit)) //checks for if gun is enabled, and if not in UI scene
         {
             Debug.Log(hit.point);
             GameObject laser = Instantiate(shotPrefab, transform.position, transform.rotation);
