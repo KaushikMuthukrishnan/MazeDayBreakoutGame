@@ -32,12 +32,13 @@ public class EmailTrigger : MonoBehaviour
             return;
         if (Input.GetKeyDown(KeyCode.F))
         {
+            tooltip.text = originalText;
             TurnOnEmail(true);
         }
 
-        //TODO DELETE THIS BELOW IF STATEMENT< ONLY FOR TESTING
+/*        //TODO DELETE THIS BELOW IF STATEMENT< ONLY FOR TESTING
         if (Input.GetKeyDown(KeyCode.P))
-            TurnOnEmail(false);
+            TurnOnEmail(false);*/
     }
     private void OnTriggerExit(Collider other)
     {
@@ -46,7 +47,7 @@ public class EmailTrigger : MonoBehaviour
         tooltip.text = originalText;
     }
 
-    private void TurnOnEmail(bool yes)
+    public void TurnOnEmail(bool yes)
     {
         emailPanel.gameObject.SetActive(yes);
         inGamePanel.gameObject.SetActive(!yes); //no

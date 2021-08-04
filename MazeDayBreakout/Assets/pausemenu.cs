@@ -28,6 +28,8 @@ public class pausemenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Movement.frozen = false;
+        Time.timeScale = 1f;
+        //adding the timescale thingies back cuz theres a bug where if u pause while moving, the animation continues
         GameIsPaused = false;
 
     }
@@ -37,6 +39,7 @@ public class pausemenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         Movement.frozen = true;
+        Time.timeScale = 0f;
         GameIsPaused = true;
     }
 }
