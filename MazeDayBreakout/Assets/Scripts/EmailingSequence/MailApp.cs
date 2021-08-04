@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MailApp : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class MailApp : MonoBehaviour
     public void SaveEmail()
     {
         string text = input.text;
+        UnFocus();
         if (text.Contains("@"))
         {
             FindObjectOfType<WriteFile>().StoreData(text);
@@ -42,6 +44,11 @@ public class MailApp : MonoBehaviour
             input.text = "";
             placeholderText.text = "Invalid Email ID...";
         }
+    }
+    public void UnFocus()
+    {
+        if (!EventSystem.current.alreadySelecting)
+            EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void SendMail()
@@ -67,6 +74,7 @@ public class MailApp : MonoBehaviour
 
         var emailManager = GameObject.Find("Email-Interaction");
         emailManager.GetComponent<EmailTrigger>().TurnOnEmail(false);
+        
 
         Destroy(emailPanel);
         Destroy(emailManager);
