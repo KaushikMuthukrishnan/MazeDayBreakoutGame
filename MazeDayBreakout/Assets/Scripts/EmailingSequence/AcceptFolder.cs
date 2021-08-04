@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class AcceptFolder : MonoBehaviour
 {
-    public GameObject uploadSucessful;
+    public GameObject uploadSucessful, folder;
+    public RectTransform rect, folderRect;
 
-    private void OnTriggerStay(Collider other)
+    private void Start()
     {
-        if (Input.GetMouseButtonUp(0) && other.gameObject.CompareTag("Folder"))
+        rect = GetComponent<RectTransform>();
+        folderRect = folder.GetComponent<RectTransform>();
+    }
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0) && CheckDistance())
         {
-            Destroy(other.gameObject);
+            Destroy(folder);
             uploadSucessful.SetActive(true);
             Destroy(gameObject);
         }
+    }
+    private bool CheckDistance()
+    {
+        return Vector2.Distance(rect.position, folderRect.position) < 300;
     }
 }
