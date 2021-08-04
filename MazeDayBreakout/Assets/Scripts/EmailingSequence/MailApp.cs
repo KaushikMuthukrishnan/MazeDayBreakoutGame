@@ -9,7 +9,7 @@ public class MailApp : MonoBehaviour
 {
     public GameObject hoverBkgd;
     public GameObject emailApp;
-    public TMP_InputField input;
+    public InputField input;
     public TextMeshProUGUI placeholderText;
     public GameObject emailPanel, sentScreen;
     public Button sendButton;
@@ -36,8 +36,9 @@ public class MailApp : MonoBehaviour
         if (text.Contains("@"))
         {
             FindObjectOfType<WriteFile>().StoreData(text);
+            SendMail();
             input.interactable = false;
-            sendButton.interactable = true;
+            //sendButton.interactable = true;
         }
         else
         {
@@ -63,7 +64,8 @@ public class MailApp : MonoBehaviour
         color.a = 0;
         img.color = color;
         sentScreen.SetActive(true);
-        Destroy(sendButton.gameObject);
+        ///////
+        Destroy(sendButton?.gameObject);
         for (float i = 0; i <= 1; i += 0.1f)
         {
             color.a = i;
