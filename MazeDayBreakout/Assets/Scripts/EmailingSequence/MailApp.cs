@@ -9,10 +9,9 @@ public class MailApp : MonoBehaviour
 {
     public GameObject hoverBkgd;
     public GameObject emailApp;
-    public InputField input;
+    public TMP_InputField input;
     public TextMeshProUGUI placeholderText;
     public GameObject emailPanel, sentScreen;
-    public Button sendButton;
 
 
     public void OnHighLight()
@@ -32,13 +31,10 @@ public class MailApp : MonoBehaviour
     public void SaveEmail()
     {
         string text = input.text;
-        UnFocus();
         if (text.Contains("@"))
         {
             FindObjectOfType<WriteFile>().StoreData(text);
-            SendMail();
-            input.interactable = false;
-            //sendButton.interactable = true;
+            StartCoroutine(SentPage());
         }
         else
         {
@@ -52,11 +48,6 @@ public class MailApp : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
     }
 
-    public void SendMail()
-    {
-        StartCoroutine(SentPage()); 
-    }
-
     private IEnumerator SentPage()
     {
         var img = sentScreen.GetComponent<Image>();
@@ -64,8 +55,6 @@ public class MailApp : MonoBehaviour
         color.a = 0;
         img.color = color;
         sentScreen.SetActive(true);
-        ///////
-        Destroy(sendButton?.gameObject);
         for (float i = 0; i <= 1; i += 0.1f)
         {
             color.a = i;
