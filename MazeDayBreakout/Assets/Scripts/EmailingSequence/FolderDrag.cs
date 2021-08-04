@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class FolderDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class FolderDrag : MonoBehaviour, IDragHandler
 {
-    public GameObject hoverBkgd;
+    public GameObject hoverBkgd, folderPrompt, fileUploadText;
     public RectTransform folder;
     public void OnHighLight()
     {
@@ -26,13 +26,9 @@ public class FolderDrag : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDr
         folder.anchoredPosition += eventData.delta;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    private void OnDrop()
     {
-        //throw new System.NotImplementedException();
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        //throw new System.NotImplementedException();
+        Destroy(folder.gameObject);
+        fileUploadText.SetActive(true);
     }
 }

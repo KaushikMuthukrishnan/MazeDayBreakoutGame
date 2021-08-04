@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cutscene
   - Guns
+  - Folder
   layers:
   - Default
   - TransparentFX
