@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         player = GameObject.Find("Player").transform;
-        playerHud = GameObject.Find("Player HUD").GetComponent<HUDDATA>();
+        playerHud = GameObject.Find("PlayerHUDPanel").GetComponent<HUDDATA>();
         //calls the shoot method at 2 second intervals, almost like a coroutine
         //the random.value is so all bots dont start firing at the same time
         InvokeRepeating("Shoot", Random.value, fireRate);
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         roboAnimator.Play("RobotDeath");
-        Destroy(transform.gameObject);
+        Destroy(transform.gameObject, 1.5f);
     }
 
     //Similar to HUDDATA.takeDamage(), but for the enemy bots

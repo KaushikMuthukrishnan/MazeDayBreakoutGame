@@ -37,6 +37,7 @@ public class GunShoot : MonoBehaviour
             laser.GetComponent<ShotBehavior>().setTarget(hit.point);
             //TODO: Need to fix a bug where the laser goes through the wall. 
             Destroy(laser, 1f);
+
         }
     }
 }
