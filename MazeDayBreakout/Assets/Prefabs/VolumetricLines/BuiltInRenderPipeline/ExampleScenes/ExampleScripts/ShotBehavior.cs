@@ -18,7 +18,7 @@ public class ShotBehavior : MonoBehaviour
 
         if (m_target != null)
         {
-            if (transform.position == m_target)
+            if (Vector3.Distance(transform.position, m_target) < 1)
             {
                 explode();
                 return;
