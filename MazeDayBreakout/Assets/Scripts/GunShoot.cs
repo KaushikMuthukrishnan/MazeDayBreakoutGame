@@ -35,8 +35,7 @@ public class GunShoot : MonoBehaviour
             GameObject laser = Instantiate(shotPrefab, transform.position, transform.rotation);
             laser.transform.LookAt(hit.point != null ? hit.point : ray.origin);
             laser.GetComponent<ShotBehavior>().setTarget(hit.point != null ? hit.point : ray.origin);
-            print(hit.collider);
-            hit.collider?.GetComponentInParent<Enemy>()?.TakeDamage(40); // inflicts damage on enemy
+            hit.collider?.GetComponentInParent<Enemy>()?.TakeDamage(60); // inflicts damage on enemy
             //TODO ADJUST DAMAGE RATE
 
             //New bug is when the shot is aimed into empty space, the shot goes towards one specific spot

@@ -35,8 +35,8 @@ public class Enemy : MonoBehaviour
     {
         if (health <= 0)
         {
-            Die();
             CancelInvoke("Shoot");
+            Die();
             return;
         }
         //finds a random point in the vicinity of player so robots arent lazer focused on player with each shot
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         roboAnimator.Play("RobotDeath");
-        Destroy(transform.gameObject, 1.5f);
+        Destroy(transform.gameObject, 7f/6f);
     }
 
     //Similar to HUDDATA.takeDamage(), but for the enemy bots
