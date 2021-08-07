@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         roboAnimator.Play("RobotDeath");
-        Destroy(transform.gameObject, 1.5f);
+        Destroy(transform.gameObject, 7f/6f);
     }
 
     //Similar to HUDDATA.takeDamage(), but for the enemy bots
