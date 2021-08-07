@@ -10,6 +10,7 @@ public class GunManager : MonoBehaviour
     public TextMeshProUGUI tooltip;
     public GameObject Crosshair;
     private string originalText;
+
     private void Start()
     {
         Crosshair = GameObject.Find("Crosshair");

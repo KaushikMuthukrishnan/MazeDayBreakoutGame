@@ -10,13 +10,17 @@ public class DoorSlide : MonoBehaviour
     public bool triggerEntered;
     public TextMeshProUGUI text;
 
+    public AudioSource audio;
+
     void Start()
     {
         triggerEntered = false;
         neverDone = true;
+        
 
         //get components by name
         text = GameObject.Find("ToolTips").GetComponent<TextMeshProUGUI>();
+        audio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -24,6 +28,8 @@ public class DoorSlide : MonoBehaviour
         if (neverDone && Input.GetKeyDown(KeyCode.Space) && triggerEntered)
         {
             Future_Door.GetComponent<Animator>().SetTrigger("Trigger");
+
+            audio.Play();
 
             neverDone = false;
         }
@@ -42,6 +48,7 @@ public class DoorSlide : MonoBehaviour
     {
         if (neverDone == false)
         {
+            audio.Play();
             Future_Door.GetComponent<Animator>().SetTrigger("Close");
             neverDone = true;
             // Debug.Log("Trigger exited");
