@@ -24,7 +24,7 @@ public class DoorSlide : MonoBehaviour
         if (neverDone && Input.GetKeyDown(KeyCode.Space) && triggerEntered)
         {
             Future_Door.GetComponent<Animator>().SetTrigger("Trigger");
-
+            text.text = ""; //this is so the tootltip disappears once action is executed;
             neverDone = false;
         }
     }
