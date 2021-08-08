@@ -27,6 +27,9 @@ ModelImporter:
   - first:
       74: -472583207363285103
     second: Swing02
+  - first:
+      74: -3531867131171456841
+    second: IdleWithWeapon (1)
   externalObjects:
   - first:
       type: UnityEngine:Material
