@@ -32,26 +32,24 @@ public class DoorSlide : MonoBehaviour
 
         if (neverDone && triggerEntered && Input.GetKeyDown(KeyCode.Space))
         {
-        
             StartCoroutine(OpenDoorAnim());
-
-            //audio
-            slideNoise.pitch = 1.0f;
-            slideNoise.Play();
-
-            Future_Door.GetComponent<Animator>().SetTrigger("Trigger");
-            text.text = ""; //this is so the tootltip disappears once action is executed;
-            neverDone = false;
-
         }
     }
 
     IEnumerator OpenDoorAnim()
     {
         text.text = ""; //this is so the tootltip disappears once action is executed;
-        punchAnim.Play(GunShoot.gunEnabled ? "PunchLeft" : "PunchRight"); //punches left if gun is held
-        yield return new WaitForSeconds(1.5f);
-        Future_Door.GetComponent<Animator>().SetTrigger("Trigger");
+        if (!GunShoot.gunEnabled)
+        {
+            punchAnim.Play("PunchRight"); 
+            yield return new WaitForSeconds(1.5f);
+        }
+
+        //audio
+        slideNoise.pitch = 1.0f;
+        slideNoise.Play();
+
+        Future_Door.GetComponent<Animator>().SetTrigger("Trigger"); 
         neverDone = false;
         yield break;
     }
@@ -61,7 +59,7 @@ public class DoorSlide : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             triggerEntered = true;
-            text.text = "Press SPACE to Punch Open Door";
+            text.text = GunShoot.gunEnabled? "Press SPACE to Open Door" : "Press SPACE to Punch Open Door";
             // Debug.Log("Trigger entered");
         }
     }
