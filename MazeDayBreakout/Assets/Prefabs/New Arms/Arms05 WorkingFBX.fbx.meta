@@ -61,10 +61,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Default Take
-      takeName: Default Take
+      name: IdleWithWeapon (1)
+      takeName: IdleWithWeapon
       internalID: 0
-      firstFrame: 0
+      firstFrame: -1
       lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
