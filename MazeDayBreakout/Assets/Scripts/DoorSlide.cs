@@ -11,6 +11,8 @@ public class DoorSlide : MonoBehaviour
     public TextMeshProUGUI text;
     private Animator punchAnim;
 
+    public AudioSource slideNoise;
+
     void Start()
     {
         triggerEntered = false;
@@ -18,14 +20,29 @@ public class DoorSlide : MonoBehaviour
 
         //get components by name
         text = GameObject.Find("ToolTips").GetComponent<TextMeshProUGUI>();
+        
         punchAnim = GameObject.Find("Main Camera").GetComponentsInChildren<Animator>()[1];
+
+
+        slideNoise = GetComponent<AudioSource>();
+        
     }
     void Update()
     {
 
         if (neverDone && triggerEntered && Input.GetKeyDown(KeyCode.Space))
         {
+        
             StartCoroutine(OpenDoorAnim());
+
+            //audio
+            slideNoise.pitch = 1.0f;
+            slideNoise.Play();
+
+            Future_Door.GetComponent<Animator>().SetTrigger("Trigger");
+            text.text = ""; //this is so the tootltip disappears once action is executed;
+            neverDone = false;
+
         }
     }
 
@@ -52,6 +69,10 @@ public class DoorSlide : MonoBehaviour
     {
         if (neverDone == false)
         {
+            //audio
+            slideNoise.pitch = 0.8f;
+            slideNoise.Play();
+
             Future_Door.GetComponent<Animator>().SetTrigger("Close");
             neverDone = true;
             // Debug.Log("Trigger exited");

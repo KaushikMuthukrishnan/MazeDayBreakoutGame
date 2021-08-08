@@ -11,6 +11,13 @@ public class GunShoot : MonoBehaviour
     public GameObject Gun;
     public static bool gunEnabled = false;
 
+    public AudioSource gunShot;
+
+    private void Start()
+    {
+        gunShot = GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (Input.GetMouseButton(0))
@@ -18,6 +25,8 @@ public class GunShoot : MonoBehaviour
 
             if (TimeStamp <= Time.time)
             {
+                gunShot.Play();
+
                 //firerates
                 TimeStamp = Time.time + 1.5f;
                 Shoot();

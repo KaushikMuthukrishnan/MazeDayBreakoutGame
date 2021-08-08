@@ -43,6 +43,8 @@ public class Movement : MonoBehaviour
 
             //triggers the "bobbing" animation when walking
             bobController.SetBool("Walking", isGrounded && movement.sqrMagnitude > 0); //evaluates to true when on floor && when moving
+
+            
         }
     }
     /*    void OnTriggerEnter(Collider other)
