@@ -10,7 +10,7 @@ public class LevelEndTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (MailApp.mailSent && other.CompareTag("Player"))
         {
             tooltip.text = "Press SPACE to Escape!";
             if (Input.GetKeyDown(KeyCode.Space))
@@ -20,7 +20,7 @@ public class LevelEndTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (MailApp.mailSent && other.CompareTag("Player"))
             tooltip.text = "";
     }
 }
