@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         playerHud = GameObject.Find("PlayerHUDPanel").GetComponent<HUDDATA>();
         //calls the shoot method at 2 second intervals, almost like a coroutine
         //the random.value is so all bots dont start firing at the same time
-        InvokeRepeating("Shoot", Random.value, fireRate);
+        InvokeRepeating("Shoot", Random.value * 2, fireRate);
     }
 
     void Update()

@@ -12,6 +12,7 @@ public class MailApp : MonoBehaviour
     public TMP_InputField input;
     public TextMeshProUGUI placeholderText;
     public GameObject emailPanel, sentScreen;
+    public static bool mailSent = false;
 
 
     public void OnHighLight()
@@ -31,7 +32,7 @@ public class MailApp : MonoBehaviour
     public void SaveEmail()
     {
         string text = input.text;
-        if (text.Contains("@"))
+        if (text.Contains("@") && text.Contains("."))
         {
             FindObjectOfType<WriteFile>().StoreData(text);
             StartCoroutine(SentPage());
@@ -41,11 +42,6 @@ public class MailApp : MonoBehaviour
             input.text = "";
             placeholderText.text = "Invalid Email ID...";
         }
-    }
-    public void UnFocus()
-    {
-        if (!EventSystem.current.alreadySelecting)
-            EventSystem.current.SetSelectedGameObject(null);
     }
 
     private IEnumerator SentPage()
@@ -69,6 +65,7 @@ public class MailApp : MonoBehaviour
 
         Destroy(emailPanel);
         Destroy(emailManager);
+        MailApp.mailSent = true;
         yield break;
     }
 }
