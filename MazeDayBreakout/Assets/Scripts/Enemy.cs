@@ -25,6 +25,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0)
+        {
+            Die();
+            CancelInvoke("Shoot");
+            return;
+        }
         //look at the player
         transform.LookAt(player.position);
         //turn light towards player
@@ -33,12 +39,7 @@ public class Enemy : MonoBehaviour
 
     private void Shoot()
     {
-        if (health <= 0)
-        {
-            Die();
-            CancelInvoke("Shoot");
-            return;
-        }
+
         //finds a random point in the vicinity of player so robots arent lazer focused on player with each shot
         //aka adds randomness to shots
         var randPoint = Random.insideUnitSphere * shootingSpread; // * 2 increases the radius of the sphere of randomness around player
