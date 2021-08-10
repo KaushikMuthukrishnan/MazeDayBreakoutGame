@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SubsManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class SubsManager : MonoBehaviour
     public GameObject waveOne, waveTwo;
     private string id;
 
+    public static bool nameEntered = false;
     public static bool enemiesSpawned = false;
     public static bool firstWaveKilled = false;
     public static bool enteredServerRoom = false;
@@ -39,32 +41,33 @@ public class SubsManager : MonoBehaviour
 
 
         nameField.gameObject.SetActive(true);
+        nameField.Select();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Movement.frozen = true;
 
-        while (nameField.text.Length < 1)
-        {
-            yield return null;
-        }
+        //TODO Bug with nameField
+        yield return new WaitUntil(() => nameEntered);
 
         id = nameField.text;
         GameObject.Find("InputTextManager").GetComponent<WriteFile>().StoreData(id);
 
-        Destroy(nameField);
+        Destroy(nameField.gameObject);
         Movement.frozen = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
         //Explaining the need to exit scene
         yield return new WaitForSeconds(1f);
-        subs.text = "Yes, " + id;
+        subs.text = "Yes. " + id + ".";
         yield return new WaitForSeconds(2f);
         subs.text = "I thought you might have lost your memory";
         yield return new WaitForSeconds(2f);
         subs.text = "Anyway, you have to get out of here " + id;
         yield return new WaitForSeconds(2f);
         subs.text = "See if you can punch open your cell door";
+        yield return new WaitForSeconds(2f);
+        subs.text = "";
 
         //First wave of guards enter scene
         yield return new WaitUntil(() => enemiesSpawned);
@@ -114,5 +117,10 @@ public class SubsManager : MonoBehaviour
         subs.text = "Head to the exit " + id + "!";
         yield return new WaitForSeconds(2f);
         subs.text = "";
+    }
+
+    public void SetNameEnter()
+    {
+        nameEntered = true;
     }
 }

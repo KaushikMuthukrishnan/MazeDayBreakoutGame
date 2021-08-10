@@ -38,14 +38,6 @@ public class GunShoot : MonoBehaviour
         laser.transform.LookAt(hit.point != null ? hit.point : ray.origin);
         laser.GetComponent<ShotBehavior>().setTarget(hit.point != null ? hit.point : ray.origin);
         hit.collider?.GetComponentInParent<Enemy>()?.TakeDamage(60); // inflicts damage on enemy
-        //TODO ADJUST DAMAGE RATE
-
-        //New bug is when the shot is aimed into empty space, the shot goes towards one specific spot
-        //Cant figure out how to fix it but we shouldnt worry abt it for now, its very minor, since most of our map will have colliders and 
-        //structure so hit.point will almost never be null
-
-        //TODO: Need to fix a bug where the laser goes through the wall. 
-        //Destroy(laser, 1f); laser is auto destroyed in source code upon reaching target
     }
 }
 

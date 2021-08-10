@@ -33,15 +33,11 @@ public class GunManager : MonoBehaviour
         {
             newArms.SetActive(true);
             Destroy(oldArms);
-            Destroy(gameObject);
-/*            t = transform.GetChild(0);
-            t.transform.SetPositionAndRotation(parentOnPick.transform.position, parentOnPick.transform.rotation);
-            t.SetParent(parentOnPick);
-            Destroy(transform.gameObject);*/
             tooltip.text = originalText;
             Crosshair.SetActive(true);
             GunShoot.gunEnabled = true;
             StopCoroutine(PromptGunPick());
+            Destroy(gameObject);
         }
         //This sequence makes the orphan Gun as a child of the Main Camera
         //Also sets the transform and rotation to match the preset object on the Cam

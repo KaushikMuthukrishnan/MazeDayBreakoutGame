@@ -35,10 +35,6 @@ public class EmailTrigger : MonoBehaviour
             tooltip.text = originalText;
             TurnOnEmail(true);
         }
-
-/*        //TODO DELETE THIS BELOW IF STATEMENT< ONLY FOR TESTING
-        if (Input.GetKeyDown(KeyCode.P))
-            TurnOnEmail(false);*/
     }
     private void OnTriggerExit(Collider other)
     {

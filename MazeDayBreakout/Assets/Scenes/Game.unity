@@ -12191,7 +12191,6 @@ GameObject:
   - component: {fileID: 951178422}
   - component: {fileID: 951178421}
   - component: {fileID: 951178420}
-  - component: {fileID: 951178419}
   - component: {fileID: 951178424}
   m_Layer: 5
   m_Name: Canvas
@@ -12200,22 +12199,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &951178419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 951178418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2852f969962a94c47ac07dbdbba0241b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WakeupText: {fileID: 0}
-  SubtitleText: {fileID: 0}
-  HQText: {fileID: 0}
-  BadpeopleText: {fileID: 0}
 --- !u!114 &951178420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12291,7 +12274,6 @@ RectTransform:
   - {fileID: 1169670236}
   - {fileID: 1479612413}
   - {fileID: 2069083923}
-  - {fileID: 1488164962}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15615,6 +15597,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subs: {fileID: 22688896}
   nameField: {fileID: 1972569881}
+  waveOne: {fileID: 1240124681}
+  waveTwo: {fileID: 1436016160}
 --- !u!4 &1141787764
 Transform:
   m_ObjectHideFlags: 0
@@ -20403,6 +20387,7 @@ RectTransform:
   - {fileID: 2129996952}
   - {fileID: 1650251526}
   - {fileID: 1972569882}
+  - {fileID: 1488164962}
   m_Father: {fileID: 951178423}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -20543,8 +20528,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0.000025749207}
   m_LocalScale: {x: 1.1362503, y: 1.1362501, z: 1.13625}
   m_Children: []
-  m_Father: {fileID: 951178423}
-  m_RootOrder: 3
+  m_Father: {fileID: 1479612413}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -22639,7 +22624,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598577344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -31.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1972569882}
@@ -26350,7 +26335,19 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1141787763}
+        m_TargetAssemblyTypeName: SubsManager, Assembly-CSharp
+        m_MethodName: SetNameEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
