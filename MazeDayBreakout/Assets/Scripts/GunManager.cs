@@ -29,7 +29,6 @@ public class GunManager : MonoBehaviour
     IEnumerator PromptGunPick()
     {
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F));
-        Transform t;
         if (transform.childCount > 0) //makes sure there is a child so t.getChild doesnt return an error
         {
             newArms.SetActive(true);
