@@ -67,7 +67,7 @@ MonoBehaviour:
   health: 100
   damageInflicted: 5
   shootingSpread: 2
-  fireRate: 1
+  fireRate: 2
   roboAnimator: {fileID: 8337535202771686072}
   fireBurst: {fileID: 8175320315031548385}
   laserLight: {fileID: 8339392706007539153}

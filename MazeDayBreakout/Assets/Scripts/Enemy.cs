@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public float health = 100;
     public int damageInflicted = 5;
     public float shootingSpread = 2;
-    public float fireRate = 1;
+    public float fireRate = 2;
     public Animator roboAnimator;
     public ParticleSystem fireBurst;
     public Transform laserLight, muzzle, player;
