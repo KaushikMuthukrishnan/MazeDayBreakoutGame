@@ -33,7 +33,7 @@ public class pausemenu : MonoBehaviour
     }
 
 
-    void Pause ()
+    public void Pause ()
     {
         pauseMenuUI.SetActive(true);
 

@@ -13,7 +13,7 @@ public class SubsManager : MonoBehaviour
     private string id;
 
     public static bool nameEntered = false;
-    public static bool enemiesSpawned = false;
+    public static bool firstWaveTriggered = false;
     public static bool firstWaveKilled = false;
     public static bool enteredServerRoom = false;
     public static bool sentMail = false;
@@ -42,8 +42,6 @@ public class SubsManager : MonoBehaviour
 
         nameField.gameObject.SetActive(true);
         nameField.Select();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
         Movement.frozen = true;
 
         //TODO Bug with nameField
@@ -54,8 +52,6 @@ public class SubsManager : MonoBehaviour
 
         Destroy(nameField.gameObject);
         Movement.frozen = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 
         //Explaining the need to exit scene
         yield return new WaitForSeconds(1f);
@@ -70,7 +66,7 @@ public class SubsManager : MonoBehaviour
         subs.text = "";
 
         //First wave of guards enter scene
-        yield return new WaitUntil(() => enemiesSpawned);
+        yield return new WaitUntil(() => firstWaveTriggered);
         yield return new WaitForSeconds(1f);
         subs.text = "Oh no! Guards!";
         yield return new WaitForSeconds(2f);
@@ -79,7 +75,8 @@ public class SubsManager : MonoBehaviour
         subs.text = "";
 
         //Telling to go to server room scene
-        yield return new WaitUntil(() => firstWaveKilled);
+        while (waveOne.transform.childCount > 0) //checks to see if there are more than 0 enemies alive
+            yield return null;
         yield return new WaitForSeconds(2f);
         subs.text = "Nice job, always the sharpshooter you were.";
         yield return new WaitForSeconds(6f);
@@ -111,7 +108,9 @@ public class SubsManager : MonoBehaviour
         subs.text = "";
 
         //After everyone is killed scene
-        yield return new WaitUntil(() => secondWaveKilled);
+        while (waveTwo.transform.childCount > 0)
+            yield return null;
+        yield return new WaitForSeconds(2f);
         subs.text = "Finally!";
         yield return new WaitForSeconds(2f);
         subs.text = "Head to the exit " + id + "!";
