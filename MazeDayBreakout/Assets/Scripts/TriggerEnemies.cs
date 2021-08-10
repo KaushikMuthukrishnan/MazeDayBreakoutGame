@@ -13,6 +13,7 @@ public class TriggerEnemies : MonoBehaviour
             var playable = GetComponent<PlayableDirector>();
             playable.Play(playable.playableAsset);
             GetComponent<BoxCollider>().enabled = false;
+            SubsManager.enemiesSpawned = true;
         }
     }
 }

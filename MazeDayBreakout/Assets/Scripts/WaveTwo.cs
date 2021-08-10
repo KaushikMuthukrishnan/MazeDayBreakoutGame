@@ -10,6 +10,7 @@ public class WaveTwo : MonoBehaviour
         if (MailApp.mailSent && Input.GetKeyDown(KeyCode.Space) && other.gameObject.CompareTag("Player"))
         {
             waveTwo.SetActive(true);
+            SubsManager.secondWaveTriggered = true;
         }
     }
 }

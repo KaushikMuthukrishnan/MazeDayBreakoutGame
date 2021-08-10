@@ -8,6 +8,7 @@ public class SubsManager : MonoBehaviour
 {
     public TextMeshProUGUI subs;
     public InputField nameField;
+    public GameObject waveOne, waveTwo;
     private string id;
 
     public static bool enemiesSpawned = false;
@@ -21,6 +22,12 @@ public class SubsManager : MonoBehaviour
         StartCoroutine(Subs());
     }
 
+    private void Update()
+    {
+        firstWaveKilled = waveOne.transform.childCount == 0;
+        secondWaveKilled = waveTwo.transform.childCount == 0;
+    }
+
     IEnumerator Subs()
     {
         //Waking p scene
@@ -29,12 +36,25 @@ public class SubsManager : MonoBehaviour
         subs.text = "Wake up!";
         yield return new WaitForSeconds(4f);
         subs.text = "Can you remember your name?";
-        //TODO Add nameField appearing logic here
-        //TODO Save name to file here
 
-        //change wait condidiotn to something else
-        ///yield return new WaitUntil(() => wokenUp);
+
+        nameField.gameObject.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Movement.frozen = true;
+
+        while (nameField.text.Length < 1)
+        {
+            yield return null;
+        }
+
         id = nameField.text;
+        GameObject.Find("InputTextManager").GetComponent<WriteFile>().StoreData(id);
+
+        Destroy(nameField);
+        Movement.frozen = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //Explaining the need to exit scene
         yield return new WaitForSeconds(1f);
@@ -48,6 +68,7 @@ public class SubsManager : MonoBehaviour
 
         //First wave of guards enter scene
         yield return new WaitUntil(() => enemiesSpawned);
+        yield return new WaitForSeconds(1f);
         subs.text = "Oh no! Guards!";
         yield return new WaitForSeconds(2f);
         subs.text = "Kill them off with that gun!";
@@ -70,12 +91,12 @@ public class SubsManager : MonoBehaviour
         subs.text = "";
 
         //After email has been sent scene
-        yield return new WaitUntil(() => sentMail);
+        yield return new WaitUntil(() => MailApp.mailSent);
         yield return new WaitForSeconds(4f);
         subs.text = "Awesome!";
         yield return new WaitForSeconds(1f);
-        subs.text = "Lets get you out of this place " + id;
-        yield return new WaitForSeconds(2f);
+        subs.text = "Now let's get you out of this place " + id;
+        yield return new WaitForSeconds(3f);
         subs.text = "Leave the server room and go to the exit";
         yield return new WaitForSeconds(2f);
         subs.text = "";
