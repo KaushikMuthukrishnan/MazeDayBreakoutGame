@@ -14,7 +14,11 @@ public class LevelEndTrigger : MonoBehaviour
         {
             tooltip.text = "Press SPACE to Escape!";
             if (Input.GetKeyDown(KeyCode.Space))
+            {
                 SceneManager.LoadScene(2);
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
         }
     }
 

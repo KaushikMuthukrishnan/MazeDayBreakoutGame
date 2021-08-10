@@ -27,7 +27,7 @@ public class DoorSlide : MonoBehaviour
         slideNoise = GetComponent<AudioSource>();
         
     }
-    void Update()
+    void OnTriggerStay()
     {
 
         if (neverDone && triggerEntered && Input.GetKeyDown(KeyCode.Space))
