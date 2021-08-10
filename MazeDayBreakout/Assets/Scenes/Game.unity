@@ -10247,6 +10247,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f729d9618a65543baedfac3b0a7311, type: 3}
+--- !u!1 &856654528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8890af7d38dd20f4aaf52150d91803fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 92086267}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &858019362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10830,7 +10836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   oldArms: {fileID: 1589869594}
-  newArms: {fileID: 0}
+  newArms: {fileID: 856654528}
   tooltip: {fileID: 1189791123}
   Crosshair: {fileID: 0}
 --- !u!65 &888148395
@@ -15584,7 +15590,7 @@ RectTransform:
   m_Children:
   - {fileID: 1488164962}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
