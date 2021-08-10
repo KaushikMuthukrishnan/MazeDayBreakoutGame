@@ -18,8 +18,17 @@ public class SubsManager : MonoBehaviour
     public static bool secondWaveKilled = false;
     private void Start()
     {
-
+        
     }
 
+    IEnumerator WakeUp()
+    {
+        subs.text = "Wake up.";
+        yield return new WaitForSeconds(2f);
+        subs.text = "Wake up!";
+        yield return new WaitForSeconds(2f);
+        subs.text = "Do you remember your name?";
+
+    }
 
 }
