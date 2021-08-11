@@ -33,7 +33,7 @@ public class SubsManager : MonoBehaviour
     IEnumerator Subs()
     {
         //Waking p scene
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         subs.text = "Wake up.";
         yield return new WaitForSeconds(2f);
         subs.text = "";
@@ -84,10 +84,14 @@ public class SubsManager : MonoBehaviour
             yield return null;
         yield return new WaitForSeconds(2f);
         subs.text = "Nice job, always the sharpshooter you were.";
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5f);
+        subs.text = "";
+        yield return new WaitForSeconds(2f);
         subs.text = "You know, while we're here";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         subs.text = "we might as well steal some top secret enemy intel.";
+        yield return new WaitForSeconds(2f);
+        subs.text = "";
         yield return new WaitForSeconds(2f);
         subs.text = "So why don't you head on over to that server room there";
         yield return new WaitForSeconds(2f);
@@ -101,9 +105,11 @@ public class SubsManager : MonoBehaviour
         subs.text = "Awesome!";
         yield return new WaitForSeconds(1f);
         subs.text = "Now let's get you out of this place " + id;
-        yield return new WaitForSeconds(3f);
-        subs.text = "Leave the server room and go to the exit";
         yield return new WaitForSeconds(2f);
+        subs.text = "";
+        yield return new WaitForSeconds(2f);
+        subs.text = "Leave the server room and go to the exit";
+        yield return new WaitForSeconds(3f);
         subs.text = "";
 
         //On second round of enemies scene
