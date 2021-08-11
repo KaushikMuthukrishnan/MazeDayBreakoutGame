@@ -40,11 +40,13 @@ public class SubsManager : MonoBehaviour
     {
         //Waking p scene
         yield return new WaitForSeconds(1f);
-        subs.text = "Wake up.";
+        subs.text = "...wake up.";
         yield return new WaitForSeconds(2f);
         subs.text = "";
         yield return new WaitForSeconds(2f);
         subs.text = "Wake up!";
+        yield return new WaitForSeconds(3f);
+        subs.text = "";
         yield return new WaitForSeconds(6f);
         subs.text = "Can you remember your name?";
 
