@@ -7,7 +7,6 @@ public class GunShoot : MonoBehaviour
     private float TimeStamp;
     public GameObject shotPrefab;
     public Camera cam;
-    //name changed cuz it was giving an error
     public static bool gunEnabled = false;
 
     private AudioSource gunShot;
@@ -25,7 +24,7 @@ public class GunShoot : MonoBehaviour
             gunShot.Play();
 
             //firerates
-            TimeStamp = Time.time + 1.5f;
+            TimeStamp = Time.time + 1f;
             Shoot();
         }
     }
