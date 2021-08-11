@@ -13,6 +13,7 @@ public class EmailTrigger : MonoBehaviour
     public TextMeshProUGUI tooltip;
     public CanvasGroup emailPanel, inGamePanel;
     private string originalText;
+    public static bool usingEmail;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class EmailTrigger : MonoBehaviour
 
     public void TurnOnEmail(bool yes)
     {
+        usingEmail = yes;
         emailPanel.gameObject.SetActive(yes);
         inGamePanel.gameObject.SetActive(!yes); //no
         Movement.frozen = yes;

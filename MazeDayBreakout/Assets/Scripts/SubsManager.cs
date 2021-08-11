@@ -95,7 +95,7 @@ public class SubsManager : MonoBehaviour
         while (waveOne.transform.childCount > 0) //checks to see if there are more than 0 enemies alive
             yield return null;
         yield return new WaitForSeconds(2f);
-        subs.text = "Nice job, your aim is as good as always";
+        subs.text = "Nice job. It seems you haven't forgotten how to use a gun either";
         yield return new WaitForSeconds(5f);
         subs.text = "";
         yield return new WaitForSeconds(2f);

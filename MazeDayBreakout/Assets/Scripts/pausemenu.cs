@@ -22,23 +22,18 @@ public class pausemenu : MonoBehaviour
     public void Resume ()
     {
         pauseMenuUI.SetActive(false);
+        Movement.frozen = EmailTrigger.usingEmail;
         Time.timeScale = 1f;
-
-        Movement.frozen = false;
-        Time.timeScale = 1f;
-        //adding the timescale thingies back cuz theres a bug where if u pause while moving, the animation continues
         GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = EmailTrigger.usingEmail? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = EmailTrigger.usingEmail;
     }
 
 
     public void Pause ()
     {
         pauseMenuUI.SetActive(true);
-
         Movement.frozen = true;
-
         Time.timeScale = 0f;
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
