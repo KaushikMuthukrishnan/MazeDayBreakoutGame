@@ -33,6 +33,7 @@ public class SubsManager : MonoBehaviour
     IEnumerator Subs()
     {
         //Waking p scene
+        yield return new WaitForSeconds(2f);
         subs.text = "Wake up.";
         yield return new WaitForSeconds(2f);
         subs.text = "";
@@ -60,6 +61,8 @@ public class SubsManager : MonoBehaviour
         subs.text = "Yes. " + id + ".";
         yield return new WaitForSeconds(2f);
         subs.text = "I thought you might have lost your memory";
+        yield return new WaitForSeconds(2f);
+        subs.text = "";
         yield return new WaitForSeconds(2f);
         subs.text = "Anyway, you have to get out of here " + id;
         yield return new WaitForSeconds(2f);
