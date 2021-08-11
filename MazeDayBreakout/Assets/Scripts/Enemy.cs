@@ -58,14 +58,8 @@ public class Enemy : MonoBehaviour
             && hit.transform != null)
         {
             int layer = hit.transform.gameObject.layer;
-            if (layer == LayerMask.NameToLayer("EnvironmentalObjs"))
-            {
-                //TODO Add bullet holes FX Here
-            }
-            else if (layer == LayerMask.NameToLayer("Player"))
-            {
+            if (layer == LayerMask.NameToLayer("Player"))
                 playerHud.TakeDamage(damageInflicted);
-            }
         }
     }
 
@@ -76,9 +70,6 @@ public class Enemy : MonoBehaviour
     }
 
     //Similar to HUDDATA.takeDamage(), but for the enemy bots
-    public void TakeDamage(int damageTaken)
-    {
-        health -= damageTaken;
-    }
+    public void TakeDamage(int damageTaken) => health -= damageTaken;
 }
 
