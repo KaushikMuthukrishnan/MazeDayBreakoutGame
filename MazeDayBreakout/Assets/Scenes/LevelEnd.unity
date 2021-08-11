@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 113485714}
   - component: {fileID: 113485713}
   - component: {fileID: 113485712}
+  - component: {fileID: 113485716}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -157,7 +158,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1824629816}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -233,6 +234,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113485710}
   m_CullTransparentMesh: 1
+--- !u!320 &113485716
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113485710}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 8e167a7e8cfb45940bc81d4a6c605d51, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2810589630347250616, guid: 8e167a7e8cfb45940bc81d4a6c605d51, type: 2}
+    value: {fileID: 113485712}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &590194256
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +646,7 @@ RectTransform:
   - {fileID: 1132462466}
   - {fileID: 590194257}
   m_Father: {fileID: 1824629816}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1097,8 +1117,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 113485711}
   - {fileID: 1136528330}
+  - {fileID: 113485711}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
