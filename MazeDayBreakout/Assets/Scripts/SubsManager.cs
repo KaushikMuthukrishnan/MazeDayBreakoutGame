@@ -59,7 +59,7 @@ public class SubsManager : MonoBehaviour
         yield return new WaitUntil(() => nameEntered);
 
         id = nameField.text;
-        id = id[0].ToString().ToUpper() + id.Substring(1);
+        id = id.Length > 0 ? id[0].ToString().ToUpper() + id.Substring(1) : id;
         GameObject.Find("InputTextManager").GetComponent<WriteFile>().StoreData(id);
 
         Destroy(nameField.gameObject);
@@ -95,18 +95,18 @@ public class SubsManager : MonoBehaviour
         while (waveOne.transform.childCount > 0) //checks to see if there are more than 0 enemies alive
             yield return null;
         yield return new WaitForSeconds(2f);
-        subs.text = "Nice job, I always knew that you were a sharpshooter";
+        subs.text = "Nice job, your aim is as good as always";
         yield return new WaitForSeconds(5f);
         subs.text = "";
         yield return new WaitForSeconds(2f);
         subs.text = "Hold on, while we're here";
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         subs.text = "we might as well steal some top secret enemy intel.";
         yield return new WaitForSeconds(2f);
         subs.text = "";
         yield return new WaitForSeconds(2f);
         subs.text = "So why don't you head on over to that server room there";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         subs.text = "and see if you can email yourself anything of value?";
           GameObject.Find("Keyboard").GetComponent<Target>().enabled = true;
         yield return new WaitForSeconds(2f);
