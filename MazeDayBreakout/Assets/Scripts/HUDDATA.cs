@@ -5,36 +5,52 @@ using UnityEngine.UI;
 
 public class HUDDATA : MonoBehaviour
 {
-    private float health = 100;
+    public float health = 100;
     public Text HealthText;
     public Slider HealthSlider;
-    public Transform Spawnpoint;
-    private Transform player;
+    public Vector3 Spawnpoint;
+    public GameObject player;
 
     
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+    void Start(){
+
+        Spawnpoint = player.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
         if (health <= 0)
         {
-            player.SetPositionAndRotation(Spawnpoint.position, Spawnpoint.rotation);
-            HealthSlider.value = 100;
+ 
+        //   player.transform.position = new Vector3(20, 50, 100);
+        //   player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //   player.transform.position= new vector3(Spawnpoint.x, Spawnpoint.y, Spawnpoint.z);
+        player.transform.position = Spawnpoint;
+            HealthSlider.value=100;
             health = 100;
         }
-        UpdateHealth();
+        HealthText.text = "" + health + "%";
+        DamageIndicator();
         
     }
-    public void UpdateHealth()
+    public void DamageIndicator()
     {
+//if g is pressed subtract health
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            health -= 20;
+        }
+
+        if (HealthSlider.value <= 0){
+            health = 0;
+        }
         HealthSlider.value = health;
-        HealthText.text = health + "%";
+     
     }
 
-    //this method subtracts player health
+    //This method is to be accessed by the enemy scripts so that if their shooting raycast hits the player,
+    //they can call this method attached to the player
     public void TakeDamage(int damageTaken)
     {
         health -= damageTaken;
