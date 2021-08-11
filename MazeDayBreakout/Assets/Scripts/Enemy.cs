@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         enemyShotNoise = GetComponent<AudioSource>();
         //calls the shoot method at 2 second intervals, almost like a coroutine
         //the random.value is so all bots dont start firing at the same time
-        InvokeRepeating("Shoot", Random.value * 2, fireRate);
+        InvokeRepeating("Shoot", 2 + Random.value * 4, fireRate);
     }
 
     void Update()
