@@ -6,9 +6,9 @@ using UnityEngine.Playables;
 public class Enemy : MonoBehaviour
 {
     public float health = 100;
-    public int damageInflicted = 5;
+    public int damageInflicted = 10;
     public float shootingSpread = 2;
-    public float fireRate = 2;
+    public float fireRate = 5;
     public Animator roboAnimator;
     public ParticleSystem fireBurst;
     public Transform laserLight, muzzle, player;
