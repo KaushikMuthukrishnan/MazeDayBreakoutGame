@@ -8,25 +8,31 @@ public class HUDDATA : MonoBehaviour
     public float health = 100;
     public Text HealthText;
     public Slider HealthSlider;
-    public GameObject Player;
-    public GameObject Maincam;
+    public Vector3 Spawnpoint;
+    public GameObject player;
+
     
     void Start(){
-        Player = GameObject.FindGameObjectWithTag("Player");
-         
-       
 
+        Spawnpoint = player.transform.position;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        HealthText.text = "" + health + "%";
-        DamageIndicator();
         if (health <= 0)
         {
-    
-            StartCoroutine(Die());
+ 
+        //   player.transform.position = new Vector3(20, 50, 100);
+        //   player.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //   player.transform.position= new vector3(Spawnpoint.x, Spawnpoint.y, Spawnpoint.z);
+        player.transform.position = Spawnpoint;
+            HealthSlider.value=100;
+            health = 100;
         }
+        HealthText.text = "" + health + "%";
+        DamageIndicator();
+        
     }
     public void DamageIndicator()
     {
@@ -50,28 +56,6 @@ public class HUDDATA : MonoBehaviour
         health -= damageTaken;
     }
 
-
-    IEnumerator Die()   //This method is called when the player dies
-    {
-
-//disable each child object in the player prefab
-        foreach (Transform child in Player.transform)
-        {
-            child.gameObject.SetActive(false);
-        }
-
- GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().enabled = false;
-
-   yield return new WaitForSeconds(1);
-
-
-
-
-
-
-
-
-    }
 
 }
 
