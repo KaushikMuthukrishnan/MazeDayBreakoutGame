@@ -51,6 +51,7 @@ public class SubsManager : MonoBehaviour
         yield return new WaitUntil(() => nameEntered);
 
         id = nameField.text;
+        id = id[0].ToString().ToUpper() + id.Substring(1);
         GameObject.Find("InputTextManager").GetComponent<WriteFile>().StoreData(id);
 
         Destroy(nameField.gameObject);
@@ -101,7 +102,7 @@ public class SubsManager : MonoBehaviour
 
         //After email has been sent scene
         yield return new WaitUntil(() => MailApp.mailSent);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         subs.text = "Awesome!";
         yield return new WaitForSeconds(1f);
         subs.text = "Now let's get you out of this place " + id;
