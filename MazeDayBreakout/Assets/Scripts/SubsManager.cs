@@ -57,7 +57,6 @@ public class SubsManager : MonoBehaviour
         yield return new WaitUntil(() => nameEntered);
 
         id = nameField.text;
-        id = id[0].ToString().ToUpper() + id.Substring(1);
         GameObject.Find("InputTextManager").GetComponent<WriteFile>().StoreData(id);
 
         Destroy(nameField.gameObject);
