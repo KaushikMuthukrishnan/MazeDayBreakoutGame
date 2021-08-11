@@ -10,6 +10,8 @@ public class SubsManager : MonoBehaviour
     public TextMeshProUGUI subs;
     public InputField nameField;
     public GameObject waveOne, waveTwo;
+  
+    
     private string id;
 
     public static bool nameEntered = false;
@@ -21,6 +23,10 @@ public class SubsManager : MonoBehaviour
     public static bool secondWaveKilled = false;
     private void Start()
     {
+        GameObject.Find("Keyboard").GetComponent<Target>().enabled = false;
+        GameObject.Find("Gun").GetComponent<Target>().enabled = false;
+        GameObject.Find("Future_Door_Final").GetComponent<Target>().enabled = false;
+        GameObject.Find("Future_Door_Final (2)").GetComponent<Target>().enabled = false;
         StartCoroutine(Subs());
     }
 
@@ -68,28 +74,31 @@ public class SubsManager : MonoBehaviour
         subs.text = "Anyway, you have to get out of here " + id;
         yield return new WaitForSeconds(2f);
         subs.text = "See if you can punch open your cell door";
+        GameObject.Find("Future_Door_Final").GetComponent<Target>().enabled = true;
         yield return new WaitForSeconds(2f);
         subs.text = "";
-
         //First wave of guards enter scene
         yield return new WaitUntil(() => firstWaveTriggered);
+         GameObject.Find("Future_Door_Final").GetComponent<Target>().enabled = false;
         yield return new WaitForSeconds(1f);
         subs.text = "Oh no! Guards!";
-        yield return new WaitForSeconds(2f);
-        subs.text = "Kill them off with that gun!";
+        yield return new WaitForSeconds(1f);
+        subs.text = "QUCK! Kill them off with that gun!";
+       GameObject.Find("Gun").GetComponent<Target>().enabled = true;
         yield return new WaitForSeconds(2f);
         subs.text = "";
+        
 
         //Telling to go to server room scene
         while (waveOne.transform.childCount > 0) //checks to see if there are more than 0 enemies alive
             yield return null;
         yield return new WaitForSeconds(2f);
-        subs.text = "Nice job, always the sharpshooter you were.";
+        subs.text = "Nice job, I always knew that you were a sharpshooter";
         yield return new WaitForSeconds(5f);
         subs.text = "";
         yield return new WaitForSeconds(2f);
-        subs.text = "You know, while we're here";
-        yield return new WaitForSeconds(2f);
+        subs.text = "Hold on, while we're here";
+        yield return new WaitForSeconds(1f);
         subs.text = "we might as well steal some top secret enemy intel.";
         yield return new WaitForSeconds(2f);
         subs.text = "";
@@ -97,12 +106,14 @@ public class SubsManager : MonoBehaviour
         subs.text = "So why don't you head on over to that server room there";
         yield return new WaitForSeconds(2f);
         subs.text = "and see if you can email yourself anything of value?";
+          GameObject.Find("Keyboard").GetComponent<Target>().enabled = true;
         yield return new WaitForSeconds(2f);
         subs.text = "";
 
         //After email has been sent scene
         yield return new WaitUntil(() => MailApp.mailSent);
-        yield return new WaitForSeconds(2f);
+          GameObject.Find("Keyboard").GetComponent<Target>().enabled = false;
+        yield return new WaitForSeconds(4f);
         subs.text = "Awesome!";
         yield return new WaitForSeconds(1f);
         subs.text = "Now let's get you out of this place " + id;
@@ -110,6 +121,7 @@ public class SubsManager : MonoBehaviour
         subs.text = "";
         yield return new WaitForSeconds(2f);
         subs.text = "Leave the server room and go to the exit";
+        GameObject.Find("Future_Door_Final (2)").GetComponent<Target>().enabled = true;
         yield return new WaitForSeconds(3f);
         subs.text = "";
 
@@ -118,7 +130,6 @@ public class SubsManager : MonoBehaviour
         subs.text = "Ugh. Of course there are more.";
         yield return new WaitForSeconds(2f);
         subs.text = "";
-
         //After everyone is killed scene
         while (waveTwo.transform.childCount > 0)
             yield return null;
