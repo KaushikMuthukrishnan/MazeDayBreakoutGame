@@ -6988,6 +6988,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62e70069d36571e41b6fa07f1eeb764b, type: 3}
+--- !u!1 &527792648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527792649}
+  m_Layer: 0
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &527792649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527792648}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -12.66, y: -3.84, z: 2.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &538887871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4057663599375532, guid: 4e57406919c506c42a59b989fd5d8c4d,
@@ -21300,11 +21330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec0f199440cc0843bbeaab310010360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
   HealthText: {fileID: 462346749}
   HealthSlider: {fileID: 85597797}
-  Spawnpoint: {x: 0, y: 0, z: 0}
-  player: {fileID: 0}
+  Spawnpoint: {fileID: 527792649}
 --- !u!114 &1479612415
 MonoBehaviour:
   m_ObjectHideFlags: 0
