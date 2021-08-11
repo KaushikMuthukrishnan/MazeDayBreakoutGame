@@ -14,10 +14,13 @@ public class Enemy : MonoBehaviour
     public Transform laserLight, muzzle, player;
     public HUDDATA playerHud;
 
+    public AudioSource enemyShotNoise;
+
     private void Start()
     {
         player = GameObject.Find("Player").transform;
         playerHud = GameObject.Find("PlayerHUDPanel").GetComponent<HUDDATA>();
+        enemyShotNoise = GetComponent<AudioSource>();
         //calls the shoot method at 2 second intervals, almost like a coroutine
         //the random.value is so all bots dont start firing at the same time
         InvokeRepeating("Shoot", Random.value * 2, fireRate);
@@ -46,6 +49,9 @@ public class Enemy : MonoBehaviour
         var targetDir = randPoint + player.position - muzzle.position; //gets direction argument to be used for Phys.Raycast()
             
         fireBurst.Play();
+
+        enemyShotNoise.Play();
+    
 
         //checks to see if player was hit on raycast, causes damage if so
         if (Physics.Raycast(muzzle.position, targetDir, out RaycastHit hit, 30, LayerMask.GetMask("Player", "EnvironmentalObjs"))
