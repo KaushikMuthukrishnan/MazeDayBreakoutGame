@@ -95,7 +95,7 @@ public class SubsManager : MonoBehaviour
         while (waveOne.transform.childCount > 0) //checks to see if there are more than 0 enemies alive
             yield return null;
         yield return new WaitForSeconds(2f);
-        subs.text = "Nice job. It seems you haven't forgotten how to use a gun either";
+        subs.text = "Nice job. Glad you still have that stellar aim";
         yield return new WaitForSeconds(5f);
         subs.text = "";
         yield return new WaitForSeconds(2f);
@@ -115,16 +115,16 @@ public class SubsManager : MonoBehaviour
         //After email has been sent scene
         yield return new WaitUntil(() => MailApp.mailSent);
           GameObject.Find("Keyboard").GetComponent<Target>().enabled = false;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         subs.text = "Awesome!";
         yield return new WaitForSeconds(1f);
         subs.text = "Now let's get you out of this place " + id;
         yield return new WaitForSeconds(2f);
         subs.text = "";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         subs.text = "Leave the server room and go to the exit";
         GameObject.Find("Future_Door_Final (2)").GetComponent<Target>().enabled = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         subs.text = "";
 
         //On second round of enemies scene
